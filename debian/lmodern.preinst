@@ -64,6 +64,67 @@ EndOfEmptyConfigFile
     return 0
 }
 
+#
+# we have to move the map and dvips config file into /u/s/texmf
+# but want to preserve changes done by the user!
+#
+dpkg_md5sum(){
+  grep "$1[[:space:]]"  /var/lib/dpkg/status | cut -f 3 -d ' '
+}
+
+#
+move_very_old_map_file_away ()
+{
+    oldfile=/etc/texmf/dvips/lm.map
+    if ! [ -r $oldfile ] ; then
+	return 0
+    fi
+    originalmd5sum=`dpkg_md5sum $oldfile`
+    installedmd5sum=`md5sum $oldfile |  cut -d ' ' -f 1`
+    if [ "$originalmd5sum" = "$installedmd5sum" ] ; then
+        echo "Removing obsolete, unchanged conffile $oldfile"
+	rm $oldfile
+    else
+        mkdir -p /etc/texmf/fonts/map/dvips/lm/
+        mv $oldfile /etc/texmf/fonts/map/dvips/lm/lm.map.preinst-bak
+	echo "
+Warning: you appear to have modified $oldfile, but its location
+is now obsolete. As this is an upgrade from a very old version, your
+file has been saved in /etc/texmf/fonts/map/dvips/lm/lm.map.preinst-bak,
+and can be safely deleted. If you want to adapt the lmodern map file,
+please make a copy of /usr/share/texmf/fonts/map/dvips/lm/lm.map
+and put it into /etc/texmf/fonts/map/dvips/lm/lm.map." >&2
+    fi
+}
+
+#
+config_move ()
+{
+    oldfile=$1
+    newloc=$2
+    originalmd5sum=`dpkg_md5sum $oldfile`
+
+    if ! [ -r $oldfile ] ; then
+        return 0
+    fi
+    oldloc=`dirname $1`
+    installedmd5sum=`md5sum $oldfile |  cut -d ' ' -f 1`
+    if [ "$originalmd5sum" = "$installedmd5sum" ] ; then
+        echo "Removing obsolete, unchanged conffile $oldfile"
+        rm $oldfile
+    else
+        if [ "X$newloc" = "X" ] ; then
+            echo "Conffile $oldfile was changed, leaving it at the same place"
+        else
+            echo "Conffile $oldfile was changed, moving it to new location $newloc"
+            mkdir -p $newloc
+            mv $oldfile $newloc
+        fi
+    fi
+    test -d $oldloc && rmdir --ignore-fail-on-non-empty $oldloc || true
+}
+
+
 # If we are upgrading (in the large sense, including the case where the package
 # was previously removed-but-not-purged)...
 if [ $# -eq 2 ]  && ( [ "$1" = "install" ] || [ "$1" = "upgrade" ] ); then
@@ -71,6 +132,7 @@ if [ $# -eq 2 ]  && ( [ "$1" = "install" ] || [ "$1" = "upgrade" ] ); then
     # wasn't allowed to be a conffile)
     if dpkg --compare-versions "$2" le 0.92-7; then
         transition_from_old_updmap_scheme
+	move_very_old_map_file_away
     fi
     # ... from an experimental version that used ucf
     #  [ Presumably, very few people installed these versions; they weren't
@@ -79,6 +141,13 @@ if [ $# -eq 2 ]  && ( [ "$1" = "install" ] || [ "$1" = "upgrade" ] ); then
     if dpkg --compare-versions "$2" ge 0.92-4 \
         && dpkg --compare-versions "$2" lt 0.92-7; then
         remove_stuff_from_experimental_versions
+    fi
+    
+    # If we upgrade from 0.92-11 (last 0.92 version in unstable) we 
+    # have only to check wether the map file has changed or not
+    if dpkg --compare-versions "$2" gt 0.92-7 \
+        && dpkg --compare-versions "$2" lt 0.99.3-1; then
+	config_move /etc/texmf/map/dvips/lm/lm.map /etc/texmf/fonts/map/dvips/lm/
     fi
 
     # People who installed lmodern 0.92-7 in the same apt run that was doing

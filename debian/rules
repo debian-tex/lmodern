@@ -97,11 +97,12 @@ binary-indep: build-indep
 	# Add the set of backward compatibility links
 	cat "debian/compat.links" >> "debian/$(PKG).links"
 
-	dh_installdirs etc/texmf/map/dvips/lm \
+	dh_installdirs \
           usr/share/texmf/fonts/type1/public/lm \
           usr/share/texmf/fonts/afm/public/lm \
           usr/share/texmf/fonts/tfm/public/lm \
           usr/share/texmf/fonts/enc/dvips/lm \
+	  usr/share/texmf/fonts/map/dvips/lm \
           usr/share/texmf/tex/latex/lm \
           usr/share/doc/texmf/fonts/lm \
           etc/X11/fonts/Type1 \
@@ -149,9 +150,9 @@ binary-indep: build-indep
         # reducing the number of files...
         # The map files for replacement fonts for cs cm pl and vn are installed
 	$(INSTALL_FILE) fonts/map/dvips/lm/lm.map \
-          "$(REL_PKG_INSTALL_DIR)/etc/texmf/map/dvips/lm"
+          "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 	$(INSTALL_FILE) fonts/map/dvips/lm/lm-rep-*.map \
-	  "$(REL_PKG_INSTALL_DIR)/etc/texmf/map/dvips/lm"
+	  "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 
 	for file in tex/latex/lm/*.fd tex/latex/lm/*.sty; do \
           $(INSTALL_FILE) "$$file" \
