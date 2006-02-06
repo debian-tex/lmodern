@@ -62,18 +62,25 @@ xset, xlsfonts and xfontsel are found in the xbase-clients Debian
 package. gtkfontsel is in the gtkfontsel package.
 
 
-How to use the Latin Modern fonts with LaTeX-based engines?
+How to use the Latin Modern fonts with LaTeX-based engines [1]?
 -----------------------------------------------------------
 
-By LaTeX-based engine, I mean a program such as latex or pdflatex. This
-is very simple: just type \usepackage{lmodern} in the preamble of your
-documents. This will redefine \rmdefault, \sfdefault and \ttdefault so
-that the default Roman, Sans Serif and TeleType fonts are taken from the
-Latin Modern family.
+By adding
 
-Don't forget to also use the fontenc and inputenc packages, unless you
-*know* you don't need them; otherwise you could still have font-related
-problems (however, these would not be directly related to Latin Modern).
+   \usepackage{lmodern} 
+
+to the preamble of your document, the default Roman, Sans Serif and
+TeleType fonts will taken from the Latin Modern family.
+
+Please don't forget to select a suitable fontencoding. For example, for
+most texts using the latin script you should include
+
+   \usepackage[T1]{fontenc}
+   \usepackage{textcomp}
+
+in the preamble.
+
+[1] By LaTeX-based engine, I mean a program such as latex or pdflatex. 
 
 
 How to use the Latin Modern fonts with TeX?
@@ -87,9 +94,9 @@ following command (this assumes lmodern is installed):
 
 Then, to use lmr10 in T1 encoding (Cork), for instance, you can do:
 
-  \font\Myfont=cork-lmr10 {\Myfont Sample text in lmr10}
+  \font\Myfont=ec-lmr10 {\Myfont Sample text in lmr10}
 
-However, you should be aware that cork-lmr10 being T1-encoded makes things
+However, you should be aware that ec-lmr10 being T1-encoded makes things
 difficult when using TeX directly; you cannot access all its characters as
 easily as with the LaTeX packages 'inputenc' and 'fontenc'. For instance,
 things such as \'e will probably not do what you would like.
