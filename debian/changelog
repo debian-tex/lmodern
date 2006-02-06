@@ -1,12 +1,8 @@
-lmodern (0.99.3-0.2) unstable; urgency=low
+lmodern (0.99.3-1) UNRELEASED; urgency=low
 
+  * New Maintainer (Closes: #335899)
+  * new upstream (Closes: #298194)
   * move map files to TEXMFMAIN
-
- -- Norbert Preining <preining@logic.at>  Mon,  6 Feb 2006 20:09:17 +0100
-
-lmodern (0.99.3-0.1) unstable; urgency=low
-
-  * New Maintainer
   * switch to dh_installtexfonts for map/cfg file installation
   * add compatibility links for lmodern < 0.93
 
