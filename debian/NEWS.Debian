@@ -1,0 +1,10 @@
+lmodern (0.99.3-0.1) unstable; urgency=low
+
+  * upstream changed some names of font metric files
+  * this breaks ConTeXt support in teTeX 3.0 and DVI files using the old names
+  * the installed links partly solve this, but (probably) produce
+    'checksum error' messages
+  * please recreate DVI files using the old names
+  * the links will be removed in etch+1
+
+ -- Norbert Preining <preining@logic.at>  Mon,  6 Feb 2006 17:59:59 +0100

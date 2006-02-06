@@ -1,0 +1,36 @@
+Source: lmodern
+Section: tex
+Priority: optional
+Maintainer: Norbert Preining <preining@logic.at>
+Build-Depends: debhelper (>= 4), defoma (>= 0.7.0), tex-common (>> 0.9)
+Standards-Version: 3.6.2
+
+Package: lmodern
+Section: tex
+Architecture: all
+Depends: defoma (>= 0.5.0), ${misc:Depends}
+Conflicts: lm, lmodern-x11
+Replaces: lm, lmodern-x11
+Description: scalable PostScript fonts for european character sets
+ The Latin Modern fonts, also known as "lm fonts", are a set of
+ scalable fonts in PostScript Type 1 format. They are based on the
+ PostScript Type 1 version of the Computer Modern fonts and contain
+ many additional characters (mostly accented ones).
+ .
+ The Latin Modern fonts were generated using MetaType1, a program
+ based on MetaPost for generating PostScript Type 1 fonts
+ (ftp://bop.eps.gda.pl/pub/metatype1/). Their size is reasonable and
+ they are usually considered to be of good quality (compared to
+ cm-super, for instance; however, cm-super contains font families
+ that have no equivalent in this package; additionally, there are
+ character sets that are supported by cm-super and not by the Latin
+ Modern fonts).
+ .
+ The fonts are setup for use with the TeX typesetting system. They
+ are also registered with defoma, which makes them available to other
+ applications such as Ghostscript and Fontconfig. Finally, they are
+ made available to the X Window System directly, which makes it
+ possible to use them in any X application (however, XFree86's native
+ rendering of PostScript Type 1 fonts is not fantastic at the moment,
+ so the result in this last case is not so pleasant as with font
+ rendering engines that perform anti-aliasing, such as FreeType).

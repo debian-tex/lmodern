@@ -1,0 +1,102 @@
+#! /bin/sh -e
+
+PACKAGE=lmodern
+
+CONFIG_FILE_BASE_NAME=10lmodern.cfg
+CONFIG_FILE="/etc/texmf/updmap.d/$CONFIG_FILE_BASE_NAME"
+TEMP_CONFIG_FILE="$OLD_STATE_DIR/${CONFIG_FILE_BASE_NAME}.tmp"
+
+# Stuff from the old (teTeX 2 times) updmap scheme
+OLD_STATE_DIR="/var/lib/$PACKAGE"
+SAVED_CONFIG_FILE="$OLD_STATE_DIR/${CONFIG_FILE_BASE_NAME}.saved"
+NO_CONFIG_FILE="$OLD_STATE_DIR/admin-wants-no-lmodern.cfg"
+
+
+# Function to call when upgrading from experimental versions 0.92-{4,5,6}
+remove_stuff_from_experimental_versions()
+{
+    # If ucf is not installed anymore, the data to purge was already
+    # removed (along with ucf), in which case there is no problem not
+    # running 'ucf --purge'.
+    [ -x /usr/bin/ucf ] && ucf --purge "$CONFIG_FILE"
+
+    rm -f "$OLD_STATE_DIR/ucf_should_not_recreate_the_config_file"
+
+    CONFIG_FILE_CRUFT_DIR="$OLD_STATE_DIR/config-file-cruft"
+    CONFIG_FILE_CRUFT_SUFFIXES='~ % .bak .dpkg-tmp .dpkg-new .dpkg-old
+                                .dpkg-dist'
+    for suffix in $CONFIG_FILE_CRUFT_SUFFIXES; do
+        rm -f "$CONFIG_FILE_CRUFT_DIR/$CONFIG_FILE_BASE_NAME$suffix"
+    done
+    [ -d "$CONFIG_FILE_CRUFT_DIR" ] && rmdir "$CONFIG_FILE_CRUFT_DIR"
+
+    return 0
+}
+
+# Transition from the (update-)updmap scheme in use with teTeX 2
+transition_from_old_updmap_scheme()
+{
+    # At the end of this block, we should have a $CONFIG_FILE.
+    if ! [ -f "$CONFIG_FILE" ]; then
+        if [ -f "$SAVED_CONFIG_FILE" ]; then
+            # The package was simply removed.
+            mv "$SAVED_CONFIG_FILE" "$CONFIG_FILE"
+        else
+            # The user had intentionally deleted $CONFIG_FILE. Create an empty
+            # one with the magic comment.
+            # The temporary file trick allows the script to be idempotent
+            # because rename(2) is guaranteed to be atomic by POSIX.
+            cat > "$TEMP_CONFIG_FILE" <<EndOfEmptyConfigFile
+# Don't delete the following pseudo-comment unless you know what you are doing.
+# -_- DebPkgProvidedMaps -_-
+# This file will *not* be included in updmap.cfg if the lmodern package is
+# removed. Please read update-updmap(1) for details.
+EndOfEmptyConfigFile
+            mv "$TEMP_CONFIG_FILE" "$CONFIG_FILE"
+        fi
+    fi
+
+    # We have a $CONFIG_FILE, therefore it is safe to remove these files now.
+    rm -f "$SAVED_CONFIG_FILE" "$NO_CONFIG_FILE"
+    # The directory should be empty by now.
+    [ -d "$OLD_STATE_DIR" ] && rmdir "$OLD_STATE_DIR"
+
+    return 0
+}
+
+# If we are upgrading (in the large sense, including the case where the package
+# was previously removed-but-not-purged)...
+if [ $# -eq 2 ]  && ( [ "$1" = "install" ] || [ "$1" = "upgrade" ] ); then
+    # ... from a version tailored for the old update-updmap (where $CONFIG_FILE
+    # wasn't allowed to be a conffile)
+    if dpkg --compare-versions "$2" le 0.92-7; then
+        transition_from_old_updmap_scheme
+    fi
+    # ... from an experimental version that used ucf
+    #  [ Presumably, very few people installed these versions; they weren't
+    #    even uploaded to experimental. At some point, we can assume that all
+    #    these people have upgraded lmodern since then, and remove this code. ]
+    if dpkg --compare-versions "$2" ge 0.92-4 \
+        && dpkg --compare-versions "$2" lt 0.92-7; then
+        remove_stuff_from_experimental_versions
+    fi
+
+    # People who installed lmodern 0.92-7 in the same apt run that was doing
+    # the teTeX 2 to teTeX 3 upgrade may have this file lying around (see bug
+    # #334658).
+    rm -f /etc/texmf/dvips/lm.map.dpkg-new
+fi
+
+case "$1" in
+    install|upgrade|abort-upgrade)
+    ;;
+
+    *)
+        echo "preinst called with unknown argument '$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
