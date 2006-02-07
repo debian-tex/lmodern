@@ -154,6 +154,12 @@ binary-indep: build-indep
 	$(INSTALL_FILE) fonts/map/dvips/lm/lm-rep-*.map \
 	  "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 
+	# backward compatibility
+	# install cork-lm.map which helps xdvi/dvips/etc for old dvi files
+	# with old file names
+	$(INSTALL_FILE) debian/cork-lm.map \
+	  "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
+
 	for file in tex/latex/lm/*.fd tex/latex/lm/*.sty; do \
           $(INSTALL_FILE) "$$file" \
              "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/tex/latex/lm"; \

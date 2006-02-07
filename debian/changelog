@@ -4,11 +4,13 @@ lmodern (0.99.3-1) unstable; urgency=low
   * new upstream (Closes: #298194)
   * move map files to TEXMFMAIN
   * switch to dh_installtexfonts for map/cfg file installation
-  * add compatibility links for lmodern < 0.93
+  * add compatibility for lmodern < 0.93 [ralf]
+    - cork-lm.map adapted lm.map
+    - cork-lm.enc -> lm-ec.enc
   * add some explanation to README.Debian on textcomp (Closes: #348906)
     [ralf]
 
- -- Norbert Preining <preining@logic.at>  Mon,  6 Feb 2006 17:55:01 +0100
+ -- Norbert Preining <preining@logic.at>  Tue,  7 Feb 2006 12:31:40 +0100
 
 lmodern (0.92-11) unstable; urgency=low
 
