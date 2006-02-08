@@ -64,7 +64,7 @@ EndOfEmptyConfigFile
     # if the CONFIG_FILE is unchanged, remove it
     if [ -f "$CONFIG_FILE" ] ; then
 	cnfmdsum=`md5sum "$CONFIG_FILE" | cut -d ' ' -f 1`
-	if [ "$cnfmdsum" = "MISSING MD5 SUM HERE" ] ; then
+	if [ "$cnfmdsum" = "77e2ae35bcc1153c4303487472d2bd17" ] ; then
 	    # we can remove the file as it hasn't been changed
 	    rm -f "$CONFIG_FILE"
 	else

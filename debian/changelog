@@ -9,6 +9,7 @@ lmodern (0.99.3-1) unstable; urgency=low
     - cork-lm.enc -> lm-ec.enc
   * add some explanation to README.Debian on textcomp (Closes: #348906)
     [ralf]
+  * change preinst logic for clean upgrade from sarge.
 
  -- Norbert Preining <preining@logic.at>  Wed,  8 Feb 2006 11:11:37 +0100
 
