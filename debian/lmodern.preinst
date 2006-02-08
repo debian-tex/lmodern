@@ -66,6 +66,7 @@ EndOfEmptyConfigFile
 	cnfmdsum=`md5sum "$CONFIG_FILE" | cut -d ' ' -f 1`
 	if [ "$cnfmdsum" = "77e2ae35bcc1153c4303487472d2bd17" ] ; then
 	    # we can remove the file as it hasn't been changed
+	    echo "Removing old, unchanged (pseudo)conffile $CONFIG_FILE"
 	    rm -f "$CONFIG_FILE"
 	else
 	    # the file was changed
