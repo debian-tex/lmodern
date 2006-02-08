@@ -61,6 +61,29 @@ EndOfEmptyConfigFile
     # The directory should be empty by now.
     [ -d "$OLD_STATE_DIR" ] && rmdir "$OLD_STATE_DIR"
 
+    # if the CONFIG_FILE is unchanged, remove it
+    if [ -f "$CONFIG_FILE" ] ; then
+	cnfmdsum=`md5sum "$CONFIG_FILE" | cut -d ' ' -f 1`
+	if [ "$cnfmdsum" = "MISSING MD5 SUM HERE" ] ; then
+	    # we can remove the file as it hasn't been changed
+	    rm -f "$CONFIG_FILE"
+	else
+	    # the file was changed
+	    # if it does not contain a magic header, we add it
+	    if grep -q '^# -_- DebPkgProvidedMaps -_-' "$CONFIG_FILE" ; then
+	        : do nothing
+	    else
+	        cat > "$TEMP_CONFIG_FILE" <<EndOfEmptyConfigFile
+# Don't delete the following pseudo-comment unless you know what you are doing.
+# -_- DebPkgProvidedMaps -_-
+# This file will *not* be included in updmap.cfg if the lmodern package is
+# removed. Please read update-updmap(1) for details.
+EndOfEmptyConfigFile
+		cat "$CONFIG_FILE" >> "$TEMP_CONFIG_FILE"
+		mv "$TEMP_CONFIG_FILE" "$CONFIG_FILE"
+	    fi
+	fi
+    fi
     return 0
 }
 
