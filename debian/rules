@@ -95,6 +95,7 @@ binary-indep: build-indep
 	: > "debian/$(PKG).links"
 
 	# Add the set of backward compatibility links
+	# This should be removed for etch+1
 	cat "debian/compat.links" >> "debian/$(PKG).links"
 
 	dh_installdirs \
@@ -157,6 +158,7 @@ binary-indep: build-indep
 	# backward compatibility
 	# install cork-lm.map which helps xdvi/dvips/etc for old dvi files
 	# with old file names
+	# this should be removed for etch+1
 	$(INSTALL_FILE) debian/cork-lm.map \
 	  "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 
