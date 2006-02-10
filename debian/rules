@@ -70,6 +70,10 @@ build-indep:
         # file names containing spaces (there is one name per line)...
 	sed -ne 's/^[[:blank:]]*begin[[:blank:]]\{1,\}.*[/]\([^/]\{1,\}\)\.pfb[[:blank:]]*$$/\1/p' \
           < "debian/$(PKG).defoma-hints" > "debian/$(PKG).fontlist-x11"
+	
+	# Generate the actual copyright file from copyright.Debian and
+	# the GUST license
+	cat debian/copyright.Debian doc/fonts/lm/GUST-FONT-SOURCE-LICENSE.txt > debian/copyright
 
 clean:
 	dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
@@ -77,9 +81,9 @@ clean:
         # debian/$(PKG).links is automatically generated from the list of
         # fonts to declare to X11 among other things, so we have to delete
         # it here.
-	rm -f "debian/$(PKG).scale.tmp" "debian/$(PKG).scale" \
-          "debian/$(PKG).fontlist-x11" \
-          "debian/$(PKG).links"
+	rm -f "debian/$(PKG).scale.tmp" "debian/$(PKG).scale" 		\
+          "debian/$(PKG).fontlist-x11" "debian/$(PKG).links"		\
+	  debian/copyright
 	dh_clean
 
 binary-indep: build-indep

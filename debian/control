@@ -3,7 +3,8 @@ Section: tex
 Priority: optional
 Maintainer: teTeX maintainers <debian-tetex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuhito KOHDA <kohda@debian.org>, Frank Küster <frank@debian.org>, Florent Rougon <frn@debian.org>
-Build-Depends-Indep: debhelper (>= 4), defoma (>= 0.7.0), tex-common (>> 0.9)
+Build-Depends: debhelper (>= 4)
+Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 0.10)
 Standards-Version: 3.6.2
 
 Package: lmodern

@@ -12,9 +12,8 @@ lmodern (0.99.3-1) unstable; urgency=low
   * change preinst logic for clean upgrade from sarge. [preining]
   * add a NEWS.Debian explaining the changes to font names. [ralf, preining]
   * add create-compat-links.sh to source package [ralf, preining]
-  * Changed Build-Depends to Build-Depends-Indep [preining]
 
- -- Norbert Preining <preining@logic.at>  Thu,  9 Feb 2006 19:44:40 +0100
+ -- Norbert Preining <preining@logic.at>  Fri, 10 Feb 2006 16:01:08 +0100
 
 lmodern (0.92-11) unstable; urgency=low
 
