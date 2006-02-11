@@ -62,18 +62,18 @@ xset, xlsfonts and xfontsel are found in the xbase-clients Debian
 package. gtkfontsel is in the gtkfontsel package.
 
 
-How to use the Latin Modern fonts with LaTeX-based engines [1]?
------------------------------------------------------------
+How to use the Latin Modern fonts with LaTeX-based engines[1]?
+--------------------------------------------------------------
 
-By adding
+By adding:
 
    \usepackage{lmodern} 
 
 to the preamble of your document, the default Roman, Sans Serif and
-TeleType fonts will taken from the Latin Modern family.
+TeleType fonts will be taken from the Latin Modern family.
 
-Please don't forget to select a suitable fontencoding. For example, for
-most texts using the latin script you should include
+Please don't forget to select a suitable font encoding. For example, for
+most texts using the latin script you should include:
 
    \usepackage[T1]{fontenc}
    \usepackage{textcomp}
@@ -135,5 +135,4 @@ at all.
     /etc/texmf/updmap.d/10lmodern.bak when removed.
 
 
- -- Norbert Preining <preining@logic.at>, Wed,  2 Nov 2005 21:38:41 +0100
- -- Florent Rougon <frn@debian.org>, Tue Oct 11 18:56:19 2005
+ -- Florent Rougon <frn@debian.org>, Fri Feb 10 17:48:14 2006

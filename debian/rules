@@ -36,17 +36,18 @@ build-indep:
               exit 1; \
           fi
 
-	# Upstream provides <texmf>/fonts/map/dvips/lm/lm.map that should be
-	# equivalent to all the encoding-specific map files in 
-	# <texmf>/fonts/map/dvips/lm/ but the replacement maps for cm, cs
-	# pl and vnr fonts-
-	# Let's check if this is still the case, allowing us to only put
-	# lm.map and the lm-rep-*.map in /etc/texmf/map/dvips/lm/.
-	# Note: I don't use uniq because I won't accept an lm.map with
-	# repeated lines.
+        # Upstream provides <texmf>/fonts/map/dvips/lm/lm.map that should be
+        # equivalent to all the encoding-specific map files in 
+        # <texmf>/fonts/map/dvips/lm/ but the replacement maps for CM, CS
+        # PL and VN fonts.
+        # Let's check if this is still the case, allowing us to only put
+        # lm.map and the lm-rep-*.map in <TEXMFMAIN>/fonts/map/dvips/lm/.
+        # Note: I don't use uniq because I won't accept an lm.map with
+        # repeated lines.
 	@export LC_COLLATE=C \
-	&& a=$$(find fonts/map/dvips/lm \( -name "*.map" -not -name lm.map -not -name "lm-rep-*.map" \) -print0 \
-		| xargs -0r cat | grep -Ev -e '^%' | sort) \
+	&& a=$$(find fonts/map/dvips/lm \
+              \( -name "*.map" -not -name lm.map -not -name "lm-rep-*.map" \) \
+              -print0 | xargs -0r cat | grep -Ev -e '^%' | sort) \
 	&& b=$$(sort < fonts/map/dvips/lm/lm.map | grep -Ev -e '^%') \
 	&& if [ "$$a" != "$$b" ]; then \
 		{ echo "fonts/map/dvips/lm/lm.map does not appear to be equivalent to" \
@@ -57,7 +58,7 @@ build-indep:
 		exit 1; \
 	   fi
 
-	
+
         # Generate $(PKG).scale from $(PKG).defoma-hints (since it contains
         # nice hand-crafted XLFD names for the fonts).
 	sed -nf debian/sed_scripts/gen-fonts.scale \
@@ -70,9 +71,9 @@ build-indep:
         # file names containing spaces (there is one name per line)...
 	sed -ne 's/^[[:blank:]]*begin[[:blank:]]\{1,\}.*[/]\([^/]\{1,\}\)\.pfb[[:blank:]]*$$/\1/p' \
           < "debian/$(PKG).defoma-hints" > "debian/$(PKG).fontlist-x11"
-	
-	# Generate the actual copyright file from copyright.Debian and
-	# the GUST license
+
+        # Generate the actual copyright file from copyright.Debian and
+        # the GUST license
 	cat debian/copyright.Debian doc/fonts/lm/GUST-FONT-SOURCE-LICENSE.txt > debian/copyright
 
 clean:
@@ -98,8 +99,8 @@ binary-indep: build-indep
         # pairs will be added to it in the relevant places.
 	: > "debian/$(PKG).links"
 
-	# Add the set of backward compatibility links
-	# This should be removed for etch+1
+        # Add the set of backward compatibility links
+        # This should be removed for etch+1
 	cat "debian/compat.links" >> "debian/$(PKG).links"
 
 	dh_installdirs \
@@ -110,6 +111,7 @@ binary-indep: build-indep
 	  usr/share/texmf/fonts/map/dvips/lm \
           usr/share/texmf/tex/latex/lm \
           usr/share/doc/texmf/fonts/lm \
+          usr/share/doc/$(PKG)/font-substitution \
           etc/X11/fonts/Type1 \
           usr/X11R6/lib/X11/fonts/Type1
 
@@ -153,16 +155,17 @@ binary-indep: build-indep
         # them to change their configuration, in the monolithic approach.
         # So, there is a slight advantage in favor of this approach, besides
         # reducing the number of files...
-        # The map files for replacement fonts for cs cm pl and vn are installed
+        #
+        # Also install the map files for replacement fonts for CS, CM, PL and
+        # VN.
 	$(INSTALL_FILE) fonts/map/dvips/lm/lm.map \
           "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 	$(INSTALL_FILE) fonts/map/dvips/lm/lm-rep-*.map \
 	  "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 
-	# backward compatibility
-	# install cork-lm.map which helps xdvi/dvips/etc for old dvi files
-	# with old file names
-	# this should be removed for etch+1
+        # For backward compatibility:
+        # install cork-lm.map which helps xdvi/dvips/etc for old dvi files
+        # with old file names. This should be removed for etch+1.
 	$(INSTALL_FILE) debian/cork-lm.map \
 	  "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 
@@ -178,21 +181,17 @@ binary-indep: build-indep
 	  done; \
         done;
 
-	# install the standard config file for update-updmap
+        # Install the standard config file for update-updmap
 	dh_installtexfonts debian/lmodern.cfg
-
-	# do we want a different priority here?
-	dh_installtexfonts --noscripts 	\
-		debian/lmodern-cm.cfg \
-		debian/lmodern-cs.cfg \
-		debian/lmodern-pl.cfg \
-		debian/lmodern-vn.cfg
 
 	dh_link
 
 	dh_installdefoma
 
 	dh_installdocs MANIFEST.txt README debian/NEWS.Debian
+
+	$(INSTALL_FILE) debian/font-substitution/* \
+          "$(REL_PKG_INSTALL_DIR)/usr/share/doc/$(PKG)/font-substitution"
 
 	dh_installchangelogs
 

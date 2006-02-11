@@ -61,19 +61,17 @@ EndOfEmptyConfigFile
     # The directory should be empty by now.
     [ -d "$OLD_STATE_DIR" ] && rmdir "$OLD_STATE_DIR"
 
-    # if the CONFIG_FILE is unchanged, remove it
-    if [ -f "$CONFIG_FILE" ] ; then
-	cnfmdsum=`md5sum "$CONFIG_FILE" | cut -d ' ' -f 1`
-	if [ "$cnfmdsum" = "77e2ae35bcc1153c4303487472d2bd17" ] ; then
-	    # we can remove the file as it hasn't been changed
-	    echo "Removing old, unchanged (pseudo)conffile $CONFIG_FILE"
+    # If the CONFIG_FILE is unchanged, remove it.
+    if [ -f "$CONFIG_FILE" ]; then
+	cnfmdsum=$(md5sum "$CONFIG_FILE" | cut -d ' ' -f 1)
+	if [ "$cnfmdsum" = "77e2ae35bcc1153c4303487472d2bd17" ]; then
+	    # We can remove the file as it hasn't been changed.
+	    echo "Removing old, unchanged (pseudo-)conffile $CONFIG_FILE"
 	    rm -f "$CONFIG_FILE"
 	else
-	    # the file was changed
-	    # if it does not contain a magic header, we add it
-	    if grep -q '^# -_- DebPkgProvidedMaps -_-' "$CONFIG_FILE" ; then
-	        : do nothing
-	    else
+	    # The file was changed.
+	    # If it does not contain a magic header, we add it.
+	    if ! grep -q '^# -_- DebPkgProvidedMaps -_-' "$CONFIG_FILE"; then
 	        cat > "$TEMP_CONFIG_FILE" <<EndOfEmptyConfigFile
 # Don't delete the following pseudo-comment unless you know what you are doing.
 # -_- DebPkgProvidedMaps -_-
@@ -89,14 +87,13 @@ EndOfEmptyConfigFile
 }
 
 #
-# we have to move the map and dvips config file into /u/s/texmf
+# We have to move the map and dvips config file into /usr/share/texmf
 # but want to preserve changes done by the user!
 #
 dpkg_md5sum(){
-  grep "$1[[:space:]]"  /var/lib/dpkg/status | cut -f 3 -d ' '
+  grep "$1[[:space:]]" /var/lib/dpkg/status | cut -f 3 -d ' '
 }
 
-#
 move_very_old_map_file_away ()
 {
     oldfile=/etc/texmf/dvips/lm.map
@@ -121,31 +118,30 @@ and put it into /etc/texmf/fonts/map/dvips/lm/lm.map." >&2
     fi
 }
 
-#
 config_move ()
 {
-    oldfile=$1
-    newloc=$2
-    originalmd5sum=`dpkg_md5sum $oldfile`
+    oldfile="$1"
+    newloc="$2"
+    originalmd5sum=$(dpkg_md5sum "$oldfile")
 
     if ! [ -r $oldfile ] ; then
         return 0
     fi
-    oldloc=`dirname $1`
-    installedmd5sum=`md5sum $oldfile |  cut -d ' ' -f 1`
+    oldloc=$(dirname "$oldfile")
+    installedmd5sum=$(md5sum "$oldfile" |  cut -d ' ' -f 1)
     if [ "$originalmd5sum" = "$installedmd5sum" ] ; then
         echo "Removing obsolete, unchanged conffile $oldfile"
-        rm $oldfile
+        rm "$oldfile"
     else
-        if [ "X$newloc" = "X" ] ; then
+        if [ -z "$newloc" ] ; then
             echo "Conffile $oldfile was changed, leaving it at the same place"
         else
             echo "Conffile $oldfile was changed, moving it to new location $newloc"
-            mkdir -p $newloc
-            mv $oldfile $newloc
+            mkdir -p "$newloc"
+            mv "$oldfile" "$newloc"
         fi
     fi
-    test -d $oldloc && rmdir --ignore-fail-on-non-empty $oldloc || true
+    test -d "$oldloc" && rmdir --ignore-fail-on-non-empty "$oldloc" || true
 }
 
 
@@ -167,11 +163,12 @@ if [ $# -eq 2 ]  && ( [ "$1" = "install" ] || [ "$1" = "upgrade" ] ); then
         remove_stuff_from_experimental_versions
     fi
     
-    # If we upgrade from 0.92-11 (last 0.92 version in unstable) we 
-    # have only to check wether the map file has changed or not
+    # If we are upgrading from a version v such as 0.92-7 < v < 0.99.3-1, then
+    # lm.map is still in /etc/texmf/map/dvips/lm/.
     if dpkg --compare-versions "$2" gt 0.92-7 \
         && dpkg --compare-versions "$2" lt 0.99.3-1; then
-	config_move /etc/texmf/map/dvips/lm/lm.map /etc/texmf/fonts/map/dvips/lm/
+	config_move /etc/texmf/map/dvips/lm/lm.map \
+                    /etc/texmf/fonts/map/dvips/lm/
     fi
 
     # People who installed lmodern 0.92-7 in the same apt run that was doing

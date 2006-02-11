@@ -2,8 +2,8 @@ lmodern (0.99.3-1) unstable; urgency=low
 
   * The designers of the Latin Modern fonts have changed the names of
     several font metric files. The LaTeX support for these fonts has been
-    updated accordingly. However, this name change breaks the ConTeXt
-    support in teTeX3 for these fonts. In addition, DVI files created 
+    updated accordingly. However, these name changes break the ConTeXt
+    support in teTeX 3 for these fonts. In addition, DVI files created 
     with a previous version of the fonts no longer work (or will give 
     checksum mismatch warnings). Please recreate DVI files!
 

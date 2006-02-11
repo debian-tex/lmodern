@@ -1,19 +1,28 @@
 lmodern (0.99.3-1) unstable; urgency=low
 
-  * New Maintainer (Closes: #335899)
-  * new upstream (Closes: #298194)
-  * move map files to TEXMFMAIN [preining]
-  * switch to dh_installtexfonts for map/cfg file installation [preining]
-  * add compatibility for lmodern < 0.93 [ralf]
-    - cork-lm.map adapted lm.map
-    - cork-lm.enc -> lm-ec.enc
-  * add some explanation to README.Debian on textcomp (Closes: #348906)
-    [ralf]
-  * change preinst logic for clean upgrade from sarge. [preining]
-  * add a NEWS.Debian explaining the changes to font names. [ralf, preining]
-  * add create-compat-links.sh to source package [ralf, preining]
+  * New Maintainer (Closes: #335899).
 
- -- Norbert Preining <preining@logic.at>  Fri, 10 Feb 2006 16:01:08 +0100
+  * New upstream release (Closes: #298194).
+
+  * Move map files to TEXMFMAIN [preining]
+
+  * Switch to dh_installtexfonts for map/cfg file installation [preining]
+
+  * Add compatibility for lmodern < 0.93 [ralf]
+      - cork-lm.map adapted lm.map
+      - cork-lm.enc -> lm-ec.enc
+
+  * Add some explanation to README.Debian on textcomp (Closes: #348906)
+    [ralf]
+
+  * Change preinst logic for clean upgrades from sarge. [preining]
+
+  * Add a NEWS.Debian explaining the changes to font names. [ralf, preining]
+  
+  * Add create-compat-links.sh to source package (not used anywhere; can be
+    suggested to the admin in etch+1...) [ralf, preining]
+
+ -- Florent Rougon <frn@debian.org>  Fri, 10 Feb 2006 17:46:04 +0100
 
 lmodern (0.92-11) unstable; urgency=low
 
