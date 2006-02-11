@@ -22,7 +22,7 @@ lmodern (0.99.3-1) unstable; urgency=low
   * Add create-compat-links.sh to source package (not used anywhere; can be
     suggested to the admin in etch+1...) [ralf, preining]
 
- -- Florent Rougon <frn@debian.org>  Fri, 10 Feb 2006 17:46:04 +0100
+ -- Florent Rougon <frn@debian.org>  Sat, 11 Feb 2006 16:38:56 +0100
 
 lmodern (0.92-11) unstable; urgency=low
 

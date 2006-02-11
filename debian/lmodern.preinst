@@ -100,8 +100,8 @@ move_very_old_map_file_away ()
     if ! [ -r $oldfile ] ; then
 	return 0
     fi
-    originalmd5sum=`dpkg_md5sum $oldfile`
-    installedmd5sum=`md5sum $oldfile |  cut -d ' ' -f 1`
+    originalmd5sum=$(dpkg_md5sum "$oldfile")
+    installedmd5sum=$(md5sum "$oldfile" |  cut -d ' ' -f 1)
     if [ "$originalmd5sum" = "$installedmd5sum" ] ; then
         echo "Removing obsolete, unchanged conffile $oldfile"
 	rm $oldfile

@@ -1,7 +1,7 @@
 Source: lmodern
 Section: tex
 Priority: optional
-Maintainer: teTeX maintainers <debian-tetex-maint@lists.debian.org>
+Maintainer: Debian teTeX maintainers <debian-tetex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuhito KOHDA <kohda@debian.org>, Frank Küster <frank@debian.org>, Florent Rougon <frn@debian.org>
 Build-Depends: debhelper (>= 4)
 Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 0.10)
@@ -13,7 +13,7 @@ Architecture: all
 Depends: defoma (>= 0.5.0), ${misc:Depends}
 Conflicts: lm, lmodern-x11
 Replaces: lm, lmodern-x11
-Description: scalable PostScript fonts for european character sets
+Description: scalable PostScript fonts based on Computer Modern
  The Latin Modern fonts, also known as "lm fonts", are a set of
  scalable fonts in PostScript Type 1 format. They are based on the
  PostScript Type 1 version of the Computer Modern fonts and contain
