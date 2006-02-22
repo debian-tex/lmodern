@@ -181,8 +181,8 @@ binary-indep: build-indep
 	  done; \
         done;
 
-        # Install the standard config file for update-updmap
-	dh_installtexfonts debian/lmodern.cfg
+        # Install the standard conffile for update-updmap
+	dh_installtex mapfile=debian/lmodern.cfg
 
 	dh_link
 

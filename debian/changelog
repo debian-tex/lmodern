@@ -1,3 +1,10 @@
+lmodern (0.99.3-2) unstable; urgency=low
+
+  * Use dh_installtex in debian/rules and Build-depend on tex-common
+    (>= 0.16) for this reason.
+
+ -- Florent Rougon <frn@debian.org>  Wed, 22 Feb 2006 17:10:15 +0100
+
 lmodern (0.99.3-1) unstable; urgency=low
 
   * New Maintainer (Closes: #335899).
