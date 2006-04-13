@@ -16,7 +16,7 @@ This package makes the Latin Modern fonts available to:
     defoma-registered fonts in Debian;
 
   - the X Window System directly[1], for use by any X application.
-    However, you should be aware that XFree86's native rendering of
+    However, you should be aware that Xorg's native rendering of
     PostScript Type 1 fonts is not very satisfactory at the moment. The
     results are much more pleasant with a font rendering engine that can
     perform anti-aliasing (such as FreeType).
@@ -40,14 +40,11 @@ course with the DISPLAY environment variable appropriately set) or
 restart the X session.
 
 If this still doesn't work, perhaps your X font path does not contain
-/usr/lib/X11/fonts/Type1 (or /usr/X11R6/lib/X11/fonts/Type1, which
-should be equivalent since /usr/lib/X11 is usually a symbolic link to
-../X11R6/lib/X11). If this path is not present in your
-/etc/X11/XF86Config-4 (or /etc/X11/XF86Config, depending on which
-version of XFree86 you are using), you should really consider adding it.
+/usr/share/fonts/X11/Type1. If this path is not present in your
+/etc/X11/xorg.conf, you should really consider adding it.
 
 You can get your current X font path with "xset q". You can also find
-useful information in /var/log/XFree86.$NUM.log, where $NUM stands for
+useful information in /var/log/Xorg.$NUM.log, where $NUM stands for
 the display number of the X session you are interested in.
 
 You can use xlsfonts to query the X server about the fonts it can see.

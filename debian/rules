@@ -113,7 +113,7 @@ binary-indep: build-indep
           usr/share/doc/texmf/fonts/lm \
           usr/share/doc/$(PKG)/font-substitution \
           etc/X11/fonts/Type1 \
-          usr/X11R6/lib/X11/fonts/Type1
+          usr/share/fonts/X11/Type1
 
         # Note: we won't install the PFM files because we already have the
         #       AFM files which are preferred in general.
