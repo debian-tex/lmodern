@@ -1,7 +1,8 @@
 lmodern (0.99.3-3) UNRELEASED; urgency=low
 
   * X font transition (Closes: #362330)
-    - adapt the sed script gen-x-fonts-links-list to use /u/s/fonts/X11/Type
+    - adapt the sed script gen-x-fonts-links-list to use
+      /usr/share/fonts/X11/Type1
     - change the dh_installdirs line in rules
     - modify the README file for new location, and change to Xorg.
     - build-dependency on debhelper >= 5.0.29, compat level set to 5
