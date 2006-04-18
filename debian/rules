@@ -139,6 +139,9 @@ binary-indep: build-indep
 	sed -nf debian/sed_scripts/gen-x-fonts-links-list \
           "debian/$(PKG).fontlist-x11" >> "debian/$(PKG).links"
 
+	# with X7 this may be the wrong place
+	echo "The location for the scale file may be wrong!!!" >&2
+	exit 1
 	$(INSTALL_FILE) "debian/$(PKG).scale" \
           "$(REL_PKG_INSTALL_DIR)/etc/X11/fonts/Type1"
 	dh_installxfonts

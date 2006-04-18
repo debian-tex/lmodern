@@ -3,7 +3,7 @@ Section: tex
 Priority: optional
 Maintainer: Debian teTeX maintainers <debian-tetex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuhito KOHDA <kohda@debian.org>, Frank Küster <frank@debian.org>, Florent Rougon <frn@debian.org>
-Build-Depends: debhelper (>= 5.0.29)
+Build-Depends: debhelper (>= 5.0.31)
 Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 0.16)
 Standards-Version: 3.6.2
 

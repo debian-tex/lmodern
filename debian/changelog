@@ -5,7 +5,7 @@ lmodern (0.99.3-3) UNRELEASED; urgency=low
       /usr/share/fonts/X11/Type1
     - change the dh_installdirs line in rules
     - modify the README file for new location, and change to Xorg.
-    - build-dependency on debhelper >= 5.0.29, compat level set to 5
+    - build-dependency on debhelper >= 5.0.31, compat level set to 5
 
  -- Norbert Preining <preining@logic.at>  Thu, 13 Apr 2006 13:37:30 +0200
 
