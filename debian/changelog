@@ -6,8 +6,10 @@ lmodern (0.99.3-3) UNRELEASED; urgency=low
     - change the dh_installdirs line in rules
     - modify the README file for new location, and change to Xorg.
     - build-dependency on debhelper >= 5.0.31, compat level set to 5
+    - install .scale file to /etc/X11/fonts/X11R7/Type1, adapt the 
+      dh_installdirs call.
 
- -- Norbert Preining <preining@logic.at>  Thu, 13 Apr 2006 13:37:30 +0200
+ -- Norbert Preining <preining@logic.at>  Tue, 18 Apr 2006 17:18:00 +0200
 
 lmodern (0.99.3-2) unstable; urgency=low
 
