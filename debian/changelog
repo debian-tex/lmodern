@@ -1,10 +1,10 @@
-lmodern (0.99.3-3) UNRELEASED; urgency=low
+lmodern (0.99.3-3) unstable; urgency=low
 
-  * X font transition (Closes: #362330)
+  * Transition from XFree86 to X.org (Closes: #362330):
     - adapt the sed script gen-x-fonts-links-list to use
       /usr/share/fonts/X11/Type1
     - change the dh_installdirs line in rules
-    - modify the README file for new location, and change to Xorg.
+    - modify the README file for new location, and change to X.org.
     - build-dependency on debhelper >= 5.0.31, compat level set to 5
     - install .scale file to /etc/X11/fonts/X11R7/Type1, adapt the 
       dh_installdirs call.

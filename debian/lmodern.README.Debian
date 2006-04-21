@@ -16,7 +16,7 @@ This package makes the Latin Modern fonts available to:
     defoma-registered fonts in Debian;
 
   - the X Window System directly[1], for use by any X application.
-    However, you should be aware that Xorg's native rendering of
+    However, you should be aware that X.org's native rendering of
     PostScript Type 1 fonts is not very satisfactory at the moment. The
     results are much more pleasant with a font rendering engine that can
     perform anti-aliasing (such as FreeType).
@@ -132,4 +132,4 @@ at all.
     /etc/texmf/updmap.d/10lmodern.bak when removed.
 
 
- -- Florent Rougon <frn@debian.org>, Fri Feb 10 17:48:14 2006
+ -- Florent Rougon <frn@debian.org>, Fri Apr 21 17:36:01 2006
