@@ -1,3 +1,15 @@
+lmodern (0.99.3-4) unstable; urgency=low
+
+  * lmodern.scale is back to /etc/X11/fonts/Type1/ because the location
+    /etc/X11/fonts/X11R7 is deprecated (see debhelper's changelog for
+    version 5.0.35 and bugs #366234 and #364530).
+  * Build-Depend on debhelper (>= 5.0.35) because it seems to be needed by
+    the aforementioned change.
+  * Bump Standards-Version to 3.7.2 (the needed changes were already
+    implemented in 0.99.3-3).
+
+ -- Florent Rougon <frn@debian.org>  Sat, 27 May 2006 20:02:44 +0200
+
 lmodern (0.99.3-3) unstable; urgency=low
 
   * Transition from XFree86 to X.org (Closes: #362330):

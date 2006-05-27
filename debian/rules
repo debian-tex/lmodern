@@ -112,7 +112,7 @@ binary-indep: build-indep
           usr/share/texmf/tex/latex/lm \
           usr/share/doc/texmf/fonts/lm \
           usr/share/doc/$(PKG)/font-substitution \
-          etc/X11/fonts/X11R7/Type1 \
+          etc/X11/fonts/Type1 \
           usr/share/fonts/X11/Type1
 
         # Note: we won't install the PFM files because we already have the
@@ -140,7 +140,7 @@ binary-indep: build-indep
           "debian/$(PKG).fontlist-x11" >> "debian/$(PKG).links"
 
 	$(INSTALL_FILE) "debian/$(PKG).scale" \
-          "$(REL_PKG_INSTALL_DIR)/etc/X11/fonts/X11R7/Type1"
+          "$(REL_PKG_INSTALL_DIR)/etc/X11/fonts/Type1"
 	dh_installxfonts
 
 	$(INSTALL_FILE) fonts/tfm/public/lm/*.tfm \

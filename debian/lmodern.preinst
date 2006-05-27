@@ -120,8 +120,10 @@ and put it into /etc/texmf/fonts/map/dvips/lm/lm.map." >&2
 
 config_move ()
 {
-    oldfile="$1"
-    newloc="$2"
+    mode="$1"
+    oldfile="$2"
+    newloc="$3"
+
     originalmd5sum=$(dpkg_md5sum "$oldfile")
 
     if ! [ -r $oldfile ] ; then
@@ -129,6 +131,8 @@ config_move ()
     fi
     oldloc=$(dirname "$oldfile")
     installedmd5sum=$(md5sum "$oldfile" |  cut -d ' ' -f 1)
+
+    # Take care of $oldfile
     if [ "$originalmd5sum" = "$installedmd5sum" ] ; then
         echo "Removing obsolete, unchanged conffile $oldfile"
         rm "$oldfile"
@@ -136,12 +140,26 @@ config_move ()
         if [ -z "$newloc" ] ; then
             echo "Conffile $oldfile was changed, leaving it at the same place"
         else
-            echo "Conffile $oldfile was changed, moving it to new location $newloc"
+            echo "Conffile $oldfile was changed, moving it to new location" \
+                "$newloc"
             mkdir -p "$newloc"
             mv "$oldfile" "$newloc"
         fi
     fi
-    test -d "$oldloc" && rmdir --ignore-fail-on-non-empty "$oldloc" || true
+
+    # Optionally remove the $oldloc directory (depending on $mode)
+    case "$mode" in
+        remove_dir)
+            test -d "$oldloc" && \
+                rmdir --ignore-fail-on-non-empty "$oldloc" || true
+            ;;
+        keep_dir)
+            ;;
+        *)
+            echo "Wrong usage of config_move(): \$1 = '$mode'" >&2
+            exit 1
+            ;;
+    esac
 }
 
 
@@ -167,14 +185,25 @@ if [ $# -eq 2 ]  && ( [ "$1" = "install" ] || [ "$1" = "upgrade" ] ); then
     # lm.map is still in /etc/texmf/map/dvips/lm/.
     if dpkg --compare-versions "$2" gt 0.92-7 \
         && dpkg --compare-versions "$2" lt 0.99.3-1; then
-	config_move /etc/texmf/map/dvips/lm/lm.map \
-                    /etc/texmf/fonts/map/dvips/lm/
+	config_move remove_dir /etc/texmf/map/dvips/lm/lm.map \
+            /etc/texmf/fonts/map/dvips/lm
     fi
 
     # People who installed lmodern 0.92-7 in the same apt run that was doing
     # the teTeX 2 to teTeX 3 upgrade may have this file lying around (see bug
     # #334658).
     rm -f /etc/texmf/dvips/lm.map.dpkg-new
+
+    # lmodern 0.99.3-3 moved lmodern.scale to /etc/X11/fonts/X11R7/Type1/
+    # because that was required by X.org, but the latter quickly reverted to
+    # the old location /etc/X11/fonts/Type1; so, let's move
+    # /etc/X11/fonts/X11R7/Type1/lmodern.scale back to /etc/X11/fonts/Type1 if
+    # upgrading from 0.99.3-3.
+    if [ "$2" = 0.99.3-3 ]; then
+	config_move keep_dir /etc/X11/fonts/X11R7/Type1/lmodern.scale \
+            /etc/X11/fonts/Type1
+    fi
+    
 fi
 
 case "$1" in
