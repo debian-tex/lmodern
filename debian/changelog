@@ -1,3 +1,64 @@
+lmodern (1.00-1) unstable; urgency=low
+
+  * New upstream release.
+
+    There are a bunch of new fonts. The new text fonts are lmdunh10, lmduno10,
+    lmssq8, lmssqbo8, lmssqbx8, lmssqo8 and lmu10.
+
+    The other new fonts are maths and symbol fonts. We don't register them
+    with defoma, because:
+
+      a) these fonts don't fit well in the defoma classification
+         (GeneralFamily, Shape...);
+
+      b) that doesn't look very useful (they support only a small part of
+         ASCII, if any, so using them in applications such as text editors
+         cannot be done without resorting to functions such as
+         "Insert Special Characters"). OK, that might be useful for
+         GhostScript... Since probably nobody uses that, I'd rather not bother
+         unless specifically asked for this feature (having the maths/symbol
+         fonts directly registered with GhostScript).
+
+    The link to the Latin Modern wishlist web page in the upstream README
+    file is now fixed (closes: #352949).
+
+  * Use debian/copyright.in instead of debian/copyright.Debian (because
+    the latter is confusing to me) and update it with the information
+    shipped in LM 1.00.
+
+  * The monolithic lm.map is incomplete in LM 1.00, therefore we use the
+    more specific map files (lm-ec.map, etc.). They are found and declared
+    automatically in 10lmodern.cfg. In order to do this,
+    debian/lmodern.cfg is now generated from debian/lmodern.cfg.in, where
+    '@LMODERN_BASIC_MAP_DECLARATIONS@' is simply replaced by the basic map
+    declarations (where "basic" means those that should be equivalent to
+    lm.map if it wasn't incomplete; not lm-rep-*.map, nor the cork-lm.map
+    that we have for backward compatibility). This replacement is
+    performed by two simple sed scripts: sed_scripts/extract-start and
+    sed_scripts/extract-end.
+
+  * Install a lintian override file for the inappropriate warning:
+
+      lmodern: maintainer-script-needs-depends-on-ucf preinst
+
+  * Use the "core X11 fonts system" expression in the package description
+    and README.Debian (this is the one used in hw/xfree86/doc/README.fonts
+    from the xorg-server 1.0.2 source package). Also, slightly update/trim
+    these places about how fonts are rendered, because I think that with
+    current X.Org, it is FreeType who does the rendering of Type 1 fonts,
+    even when the core X11 fonts system is in use (although there is no
+    antialiasing in this case, don't ask me why).
+
+  * Use a build-indep-stamp file to avoid running the build-indep target
+    twice per build (first time when "debian/rules build" is called,
+    second time when "debian/rules binary" is invoked).
+
+  * Recode MANIFEST.txt to have Unix-style line endings before installing
+    it in /usr/share/doc/lmodern/. Add 'recode' to Build-Depends-Indep for
+    this reason.
+
+ -- Florent Rougon <frn@debian.org>  Sun, 18 Jun 2006 20:00:12 +0200
+
 lmodern (0.99.3-4) unstable; urgency=low
 
   * lmodern.scale is back to /etc/X11/fonts/Type1/ because the location

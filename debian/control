@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian teTeX maintainers <debian-tetex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuhito KOHDA <kohda@debian.org>, Frank Küster <frank@debian.org>, Florent Rougon <frn@debian.org>, Norbert Preining <preining@logic.at>
 Build-Depends: debhelper (>= 5.0.35)
-Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 0.16)
+Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 0.16), recode
 Standards-Version: 3.7.2
 
 Package: lmodern
@@ -31,8 +31,5 @@ Description: scalable PostScript fonts based on Computer Modern
  The fonts are setup for use with the TeX typesetting system. They
  are also registered with defoma, which makes them available to other
  applications such as Ghostscript and Fontconfig. Finally, they are
- made available to the X Window System directly, which makes it
- possible to use them in any X application (however, XFree86's native
- rendering of PostScript Type 1 fonts is not fantastic at the moment,
- so the result in this last case is not so pleasant as with font
- rendering engines that perform anti-aliasing, such as FreeType).
+ made available to the core X11 fonts system, which makes it possible
+ to use them in any X application.

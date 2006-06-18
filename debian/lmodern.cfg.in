@@ -24,8 +24,9 @@
 # this works.
 #
 #
-# Declare lm.map for use by the updmap-sys(1) machinery.
-Map lm.map
+# Declare the basic Latin Modern map files for use by the updmap-sys(1)
+# machinery.
+@LMODERN_BASIC_MAP_DECLARATIONS@
 #
-# this map file is for compatibility with old dvi files
+# This map file is for compatibility with old DVI files.
 Map cork-lm.map

@@ -15,11 +15,7 @@ This package makes the Latin Modern fonts available to:
     Ghostscript are two noteworthy applications that take advantage of
     defoma-registered fonts in Debian;
 
-  - the X Window System directly[1], for use by any X application.
-    However, you should be aware that X.org's native rendering of
-    PostScript Type 1 fonts is not very satisfactory at the moment. The
-    results are much more pleasant with a font rendering engine that can
-    perform anti-aliasing (such as FreeType).
+  - the core X11 fonts system[1], for use by any X application.
 
 
 How to use the Latin Modern fonts with defoma-aware applications?
@@ -123,8 +119,7 @@ file. The official (Debian) lmodern package does not use nor modify it
 at all.
 
 
-[1] By *in*directly, I mean, through defoma, Fontconfig and FreeType,
-    for instance.
+[1] In this case, the X server doesn't use Fontconfig to access the fonts.
 
 [2] The unofficial lmodern package distributed by Michael Wiedmann on
     http://www.miwie.org/lm/ before the official package came into
@@ -132,4 +127,4 @@ at all.
     /etc/texmf/updmap.d/10lmodern.bak when removed.
 
 
- -- Florent Rougon <frn@debian.org>, Fri Apr 21 17:36:01 2006
+ -- Florent Rougon <frn@debian.org>, Sun Jun 18 19:11:33 2006

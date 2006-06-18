@@ -160,6 +160,52 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmcsco10.pfb
   Charset2 = ISO8859-15
   X-FontName2 = -unregistered-Latin_Modern_Roman-medium-o-normal-small_caps-0-0-0-0-p-0-iso8859-15
 end
+begin /usr/share/texmf/fonts/type1/public/lm/lmdunh10.pfb
+  FaceNum = 3
+  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  FontName = LMRoman10-Dunhill
+  Charset = font-specific
+  Family = Latin_Modern_Roman
+  GeneralFamily = Roman
+  Weight = Medium
+  Width = Variable
+  Shape = Serif Upright
+  Direction = Horizontal
+  Priority = 20
+  X-FontName = -unregistered-Latin_Modern_Roman-medium-r-normal-dunhill-0-0-0-0-p-0-unregistered-font_specific
+  AFM = /usr/share/texmf/fonts/afm/public/lm/lmdunh10.afm
+
+  FontName1 = LMRoman10-Dunhill-ISO8859-1
+  Charset1 = ISO8859-1
+  X-FontName1 = -unregistered-Latin_Modern_Roman-medium-r-normal-dunhill-0-0-0-0-p-0-iso8859-1
+
+  FontName2 = LMRoman10-Dunhill-ISO8859-15
+  Charset2 = ISO8859-15
+  X-FontName2 = -unregistered-Latin_Modern_Roman-medium-r-normal-dunhill-0-0-0-0-p-0-iso8859-15
+end
+begin /usr/share/texmf/fonts/type1/public/lm/lmduno10.pfb
+  FaceNum = 3
+  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  FontName = LMRoman10-DunhillOblique
+  Charset = font-specific
+  Family = Latin_Modern_Roman
+  GeneralFamily = Roman
+  Weight = Medium
+  Width = Variable
+  Shape = Serif Oblique
+  Direction = Horizontal
+  Priority = 20
+  X-FontName = -unregistered-Latin_Modern_Roman-medium-o-normal-dunhill-0-0-0-0-p-0-unregistered-font_specific
+  AFM = /usr/share/texmf/fonts/afm/public/lm/lmduno10.afm
+
+  FontName1 = LMRoman10-DunhillOblique-ISO8859-1
+  Charset1 = ISO8859-1
+  X-FontName1 = -unregistered-Latin_Modern_Roman-medium-o-normal-dunhill-0-0-0-0-p-0-iso8859-1
+
+  FontName2 = LMRoman10-DunhillOblique-ISO8859-15
+  Charset2 = ISO8859-15
+  X-FontName2 = -unregistered-Latin_Modern_Roman-medium-o-normal-dunhill-0-0-0-0-p-0-iso8859-15
+end
 begin /usr/share/texmf/fonts/type1/public/lm/lmr10.pfb
   FaceNum = 3
   Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
@@ -366,6 +412,98 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb
   FontName2 = LMSans10-Oblique-ISO8859-15
   Charset2 = ISO8859-15
   X-FontName2 = -unregistered-Latin_Modern_Sans-medium-o-normal--0-0-0-0-p-0-iso8859-15
+end
+begin /usr/share/texmf/fonts/type1/public/lm/lmssq8.pfb
+  FaceNum = 3
+  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  FontName = LMSansQuotation8-Regular
+  Charset = font-specific
+  Family = Latin_Modern_SansQuotation
+  GeneralFamily = SansSerif
+  Weight = Medium
+  Width = Variable
+  Shape = NoSerif Upright
+  Direction = Horizontal
+  Priority = 20
+  X-FontName = -unregistered-Latin_Modern_SansQuotation-medium-r-normal--0-0-0-0-p-0-unregistered-font_specific
+  AFM = /usr/share/texmf/fonts/afm/public/lm/lmssq8.afm
+
+  FontName1 = LMSansQuotation8-Regular-ISO8859-1
+  Charset1 = ISO8859-1
+  X-FontName1 = -unregistered-Latin_Modern_SansQuotation-medium-r-normal--0-0-0-0-p-0-iso8859-1
+
+  FontName2 = LMSansQuotation8-Regular-ISO8859-15
+  Charset2 = ISO8859-15
+  X-FontName2 = -unregistered-Latin_Modern_SansQuotation-medium-r-normal--0-0-0-0-p-0-iso8859-15
+end
+begin /usr/share/texmf/fonts/type1/public/lm/lmssqbo8.pfb
+  FaceNum = 3
+  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  FontName = LMSansQuotation8-BoldOblique
+  Charset = font-specific
+  Family = Latin_Modern_SansQuotation
+  GeneralFamily = SansSerif
+  Weight = Bold
+  Width = Variable
+  Shape = NoSerif Oblique
+  Direction = Horizontal
+  Priority = 20
+  X-FontName = -unregistered-Latin_Modern_SansQuotation-bold-o-normal--0-0-0-0-p-0-unregistered-font_specific
+  AFM = /usr/share/texmf/fonts/afm/public/lm/lmssqbo8.afm
+
+  FontName1 = LMSansQuotation8-BoldOblique-ISO8859-1
+  Charset1 = ISO8859-1
+  X-FontName1 = -unregistered-Latin_Modern_SansQuotation-bold-o-normal--0-0-0-0-p-0-iso8859-1
+
+  FontName2 = LMSansQuotation8-BoldOblique-ISO8859-15
+  Charset2 = ISO8859-15
+  X-FontName2 = -unregistered-Latin_Modern_SansQuotation-bold-o-normal--0-0-0-0-p-0-iso8859-15
+end
+begin /usr/share/texmf/fonts/type1/public/lm/lmssqbx8.pfb
+  FaceNum = 3
+  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  FontName = LMSansQuotation8-Bold
+  Charset = font-specific
+  Family = Latin_Modern_SansQuotation
+  GeneralFamily = SansSerif
+  Weight = Bold
+  Width = Variable
+  Shape = NoSerif Upright Expanded
+  Direction = Horizontal
+  Priority = 20
+  X-FontName = -unregistered-Latin_Modern_SansQuotation-bold-o-expanded--0-0-0-0-p-0-unregistered-font_specific
+  AFM = /usr/share/texmf/fonts/afm/public/lm/lmssqbx8.afm
+
+  FontName1 = LMSansQuotation8-Bold-ISO8859-1
+  Charset1 = ISO8859-1
+  X-FontName1 = -unregistered-Latin_Modern_SansQuotation-bold-o-expanded--0-0-0-0-p-0-iso8859-1
+
+  FontName2 = LMSansQuotation8-Bold-ISO8859-15
+  Charset2 = ISO8859-15
+  X-FontName2 = -unregistered-Latin_Modern_SansQuotation-bold-o-expanded--0-0-0-0-p-0-iso8859-15
+end
+begin /usr/share/texmf/fonts/type1/public/lm/lmssqo8.pfb
+  FaceNum = 3
+  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  FontName = LMSansQuotation8-Oblique
+  Charset = font-specific
+  Family = Latin_Modern_SansQuotation
+  GeneralFamily = SansSerif
+  Weight = Medium
+  Width = Variable
+  Shape = NoSerif Oblique
+  Direction = Horizontal
+  Priority = 20
+  X-FontName = -unregistered-Latin_Modern_SansQuotation-medium-o-normal--0-0-0-0-p-0-unregistered-font_specific
+  AFM = /usr/share/texmf/fonts/afm/public/lm/lmssqo8.afm
+
+  FontName1 = LMSansQuotation8-Oblique-ISO8859-1
+  Charset1 = ISO8859-1
+  X-FontName1 = -unregistered-Latin_Modern_SansQuotation-medium-o-normal--0-0-0-0-p-0-iso8859-1
+
+  FontName2 = LMSansQuotation8-Oblique-ISO8859-15
+  Charset2 = ISO8859-15
+  X-FontName2 = -unregistered-Latin_Modern_SansQuotation-medium-o-normal--0-0-0-0-p-0-iso8859-15
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtcsc10.pfb
   FaceNum = 3
@@ -619,6 +757,29 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtto10.pfb
   FontName2 = LMTypewriter10-Oblique-ISO8859-15
   Charset2 = ISO8859-15
   X-FontName2 = -unregistered-Latin_Modern_Typewriter-medium-o-normal--0-0-0-0-c-0-iso8859-15
+end
+begin /usr/share/texmf/fonts/type1/public/lm/lmu10.pfb
+  FaceNum = 3
+  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  FontName = LMRoman10-Unslanted
+  Charset = font-specific
+  Family = Latin_Modern_Roman
+  GeneralFamily = Roman
+  Weight = Medium
+  Width = Variable
+  Shape = Serif Upright Unslanted
+  Direction = Horizontal
+  Priority = 20
+  X-FontName = -unregistered-Latin_Modern_Roman-medium-r-normal-unslanted-0-0-0-0-p-0-unregistered-font_specific
+  AFM = /usr/share/texmf/fonts/afm/public/lm/lmu10.afm
+
+  FontName1 = LMRoman10-Unslanted-ISO8859-1
+  Charset1 = ISO8859-1
+  X-FontName1 = -unregistered-Latin_Modern_Roman-medium-r-normal-unslanted-0-0-0-0-p-0-iso8859-1
+
+  FontName2 = LMRoman10-Unslanted-ISO8859-15
+  Charset2 = ISO8859-15
+  X-FontName2 = -unregistered-Latin_Modern_Roman-medium-r-normal-unslanted-0-0-0-0-p-0-iso8859-15
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmvtk10.pfb
   FaceNum = 3
