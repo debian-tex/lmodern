@@ -1,7 +1,7 @@
 category type1
 begin /usr/share/texmf/fonts/type1/public/lm/lmb10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-Demi
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -24,7 +24,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmb10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmbo10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-DemiOblique
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -47,7 +47,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmbo10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-Bold
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -70,7 +70,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-BoldItalic
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -93,7 +93,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmbxo10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-BoldOblique
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -116,7 +116,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmbxo10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-CapsRegular
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -139,7 +139,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmcsco10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-CapsOblique
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -162,7 +162,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmcsco10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmdunh10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-Dunhill
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -185,7 +185,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmdunh10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmduno10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-DunhillOblique
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -208,7 +208,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmduno10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmr10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-Regular
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -231,7 +231,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmr10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmri10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-Italic
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -254,7 +254,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmri10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmro10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-Oblique
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -277,7 +277,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmro10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmss10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSans10-Regular
   Charset = font-specific
   Family = Latin_Modern_Sans
@@ -300,7 +300,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmss10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmssbo10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSans10-BoldOblique
   Charset = font-specific
   Family = Latin_Modern_Sans
@@ -323,7 +323,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmssbo10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSans10-Bold
   Charset = font-specific
   Family = Latin_Modern_Sans
@@ -346,7 +346,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmssdc10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSans10-DemiCondensed
   Charset = font-specific
   Family = Latin_Modern_Sans
@@ -369,7 +369,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmssdc10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmssdo10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSans10-DemiCondensedOblique
   Charset = font-specific
   Family = Latin_Modern_Sans
@@ -392,7 +392,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmssdo10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSans10-Oblique
   Charset = font-specific
   Family = Latin_Modern_Sans
@@ -415,7 +415,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmssq8.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSansQuotation8-Regular
   Charset = font-specific
   Family = Latin_Modern_SansQuotation
@@ -438,7 +438,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmssq8.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmssqbo8.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSansQuotation8-BoldOblique
   Charset = font-specific
   Family = Latin_Modern_SansQuotation
@@ -461,7 +461,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmssqbo8.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmssqbx8.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSansQuotation8-Bold
   Charset = font-specific
   Family = Latin_Modern_SansQuotation
@@ -484,7 +484,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmssqbx8.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmssqo8.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMSansQuotation8-Oblique
   Charset = font-specific
   Family = Latin_Modern_SansQuotation
@@ -507,7 +507,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmssqo8.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtcsc10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-CapsRegular
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -530,7 +530,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtcsc10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtcso10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-CapsOblique
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -553,7 +553,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtcso10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-Dark
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -576,7 +576,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtko10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-DarkOblique
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -599,7 +599,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtko10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtl10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-Light
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -622,7 +622,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtl10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtlc10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-LightCondensed
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -645,7 +645,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtlc10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtlco10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-LightCondensedOblique
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -668,7 +668,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtlco10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtlo10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-LightOblique
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -691,7 +691,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtlo10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-Regular
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -714,7 +714,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-Italic
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -737,7 +737,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmtto10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriter10-Oblique
   Charset = font-specific
   Family = Latin_Modern_Typewriter
@@ -760,7 +760,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmtto10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmu10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMRoman10-Unslanted
   Charset = font-specific
   Family = Latin_Modern_Roman
@@ -783,7 +783,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmu10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmvtk10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriterVarWd10-Dark
   Charset = font-specific
   Family = Latin_Modern_Typewriter_Variable_Width
@@ -806,7 +806,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmvtk10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmvtko10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriterVarWd10-DarkOblique
   Charset = font-specific
   Family = Latin_Modern_Typewriter_Variable_Width
@@ -829,7 +829,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmvtko10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmvtl10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriterVarWd10-Light
   Charset = font-specific
   Family = Latin_Modern_Typewriter_Variable_Width
@@ -852,7 +852,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmvtl10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmvtlo10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriterVarWd10-LightOblique
   Charset = font-specific
   Family = Latin_Modern_Typewriter_Variable_Width
@@ -875,7 +875,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmvtlo10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmvtt10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriterVarWd10-Regular
   Charset = font-specific
   Family = Latin_Modern_Typewriter_Variable_Width
@@ -898,7 +898,7 @@ begin /usr/share/texmf/fonts/type1/public/lm/lmvtt10.pfb
 end
 begin /usr/share/texmf/fonts/type1/public/lm/lmvtto10.pfb
   FaceNum = 3
-  Inherit = FontName Family GeneralFamily Weight Width Shape Direction Priority AFM
+  Inherit = Family GeneralFamily Weight Width Shape Direction Priority AFM
   FontName = LMTypewriterVarWd10-Oblique
   Charset = font-specific
   Family = Latin_Modern_Typewriter_Variable_Width
