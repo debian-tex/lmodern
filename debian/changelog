@@ -1,3 +1,9 @@
+lmodern (1.00-3) UNRELEASED; urgency=low
+
+  * Updated Maintainer field to use new mailing list [jdg]
+  
+ -- Julian Gilbey <jdg@debian.org>  Sun, 16 Jul 2006 21:37:46 +0100
+
 lmodern (1.00-2) unstable; urgency=low
 
   * debian/lmodern.defoma-hints: don't inherit the FontName property,
