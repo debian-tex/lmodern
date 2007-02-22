@@ -1,3 +1,9 @@
+lmodern (1.01-1~1) unstable; urgency=low
+
+  * new upstream
+
+ -- Norbert Preining <preining@debian.org>  Thu, 22 Feb 2007 23:35:33 +0100
+
 lmodern (1.00-3) unstable; urgency=low
 
   * Updated Maintainer field to use new mailing list [jdg]

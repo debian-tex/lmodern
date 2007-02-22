@@ -26,10 +26,9 @@ build-indep-stamp:
 	  -e '^\./fonts/enc/dvips/lm/[^/]*\.enc$$' \
 	  -e '^\./fonts/opentype/public/lm/[^/]*\.otf$$' \
           -e '^\./tex/latex/lm/[^/]*\.(fd|sty)$$' \
-	  -e '^\./(GUST-FONT-SOURCE-LICENSE.txt|MANIFEST\.txt)$$' \
 	  -e '^\./(README\.eng|README)$$' \
-	  -e '^\./(lm1\.00mt1\.zip)$$' \
-          -e '^\./doc/fonts/lm/[^/]*\.(tex|dvi|pdf|txt|eng)$$' || true) && \
+	  -e '^\./(lm1\.010mt1\.zip)$$' \
+          -e '^\./doc/fonts/lm/[^/]*\.(tex|pdf|txt|eng)$$' || true) && \
           if [ -n "$$newfiles" ]; then \
               { echo "New files were found in the patched tarball" \
                      "(.orig.tar.gz + .diff.gz):"; \
@@ -85,11 +84,8 @@ build-indep-stamp:
 
         # Generate the actual copyright file from copyright.in and
         # the GUST license
-	cat debian/copyright.in doc/fonts/lm/GUST-FONT-SOURCE-LICENSE.txt \
+	cat debian/copyright.in doc/fonts/lm/GUST-FONT-LICENSE.txt \
             > debian/copyright
-
-        # MANIFEST.txt has CR-LF line endings...
-	recode ASCII/CR-LF..ASCII <MANIFEST.txt >MANIFEST.txt.LF
 
 	touch build-indep-stamp
 
@@ -101,13 +97,10 @@ clean:
         # it here.
         # debian/copyright and debian/lmodern.cfg are automatically generated
         # from the respective .in files.
-        # MANIFEST.txt.LF is the LF-recoded version of MANIFEST.txt (which
-        # has CR-LF line endings in the upstream distribution).
 	rm -f build-indep-stamp \
               "debian/$(PKG).scale.tmp" "debian/$(PKG).scale" \
               "debian/$(PKG).fontlist-x11" "debian/$(PKG).links" \
-	      debian/copyright debian/lmodern.cfg \
-              MANIFEST.txt.LF
+	      debian/copyright debian/lmodern.cfg
 	dh_clean
 
 binary-indep: build-indep
@@ -207,7 +200,7 @@ binary-indep: build-indep
              "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/tex/latex/lm"; \
         done
 
-	for ext in tex dvi pdf ; do \
+	for ext in tex pdf ; do \
 	  for file in doc/fonts/lm/*.$$ext; do \
 	    $(INSTALL_FILE) "$$file" \
 	      "$(REL_PKG_INSTALL_DIR)/usr/share/doc/texmf/fonts/lm"; \
@@ -227,7 +220,7 @@ binary-indep: build-indep
         # style... So, let's use doc/fonts/lm/README.eng.
 	$(INSTALL_FILE) doc/fonts/lm/README.eng \
           "$(REL_PKG_INSTALL_DIR)/usr/share/doc/lmodern/README"
-	$(INSTALL_FILE) MANIFEST.txt.LF \
+	$(INSTALL_FILE) doc/fonts/lm/MANIFEST.txt \
           "$(REL_PKG_INSTALL_DIR)/usr/share/doc/lmodern/MANIFEST.txt"
 
 	$(INSTALL_FILE) debian/font-substitution/* \
