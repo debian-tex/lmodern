@@ -208,7 +208,7 @@ binary-indep: build-indep
         done;
 
         # Install the standard conffile for update-updmap
-	dh_installtex mapfile=debian/lmodern.cfg
+	dh_installtex --priority=10 mapfile=debian/lmodern.cfg
 
 	dh_link
 
