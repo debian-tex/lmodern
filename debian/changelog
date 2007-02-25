@@ -3,8 +3,10 @@ lmodern (1.01-1) experimental; urgency=low
   * new upstream release
   * adding my Debian email adress to the Uploaders field
   * upload to experimental to not infere with the release of etch
+  * add dependency on tex-common >= 1.1 to get a working dh_installtex
+    --priority option
 
- -- Norbert Preining <preining@debian.org>  Sun, 25 Feb 2007 18:01:29 +0100
+ -- Norbert Preining <preining@debian.org>  Sun, 25 Feb 2007 18:28:46 +0100
 
 lmodern (1.00-3) unstable; urgency=low
 
