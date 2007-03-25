@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuhito KOHDA <kohda@debian.org>, Frank Küster <frank@debian.org>, Florent Rougon <frn@debian.org>, Norbert Preining <preining@debian.org>
 Build-Depends: debhelper (>= 5.0.35)
-Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 1.1), recode
+Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 1.1)
 Standards-Version: 3.7.2
 
 Package: lmodern
@@ -13,11 +13,11 @@ Architecture: all
 Depends: defoma (>= 0.5.0), ${misc:Depends}
 Conflicts: lm, lmodern-x11
 Replaces: lm, lmodern-x11
-Description: scalable PostScript fonts based on Computer Modern
+Description: scalable PostScript and OpenType fonts based on Computer Modern
  The Latin Modern fonts, also known as "lm fonts", are a set of
- scalable fonts in PostScript Type 1 format. They are based on the
- PostScript Type 1 version of the Computer Modern fonts and contain
- many additional characters (mostly accented ones).
+ scalable fonts in PostScript Type 1 and OpenType formats. They are
+ based on the PostScript Type 1 version of the Computer Modern fonts
+ and contain many additional characters (mostly accented ones).
  .
  The Latin Modern fonts were generated using MetaType1, a program
  based on MetaPost for generating PostScript Type 1 fonts
@@ -33,3 +33,5 @@ Description: scalable PostScript fonts based on Computer Modern
  applications such as Ghostscript and Fontconfig. Finally, they are
  made available to the core X11 fonts system, which makes it possible
  to use them in any X application.
+ .
+  Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/

@@ -1,6 +1,7 @@
-This package contains a set of PostScript Type 1 fonts called "Latin
-Modern", or "lm fonts". They are based on the PostScript Type 1 version
-of the Computer Modern fonts and contain many additional characters.
+This package contains a set of fonts called "Latin Modern", or "lm fonts", in
+both PostScript Type 1 and OpenType formats. They are based on the PostScript
+Type 1 version of the Computer Modern fonts and contain many additional
+characters.
 
 This package makes the Latin Modern fonts available to:
 
@@ -127,4 +128,4 @@ at all.
     /etc/texmf/updmap.d/10lmodern.bak when removed.
 
 
- -- Florent Rougon <frn@debian.org>, Sun Jun 18 19:11:33 2006
+ -- Florent Rougon <frn@debian.org>, Sun Mar 25 12:52:11 2007

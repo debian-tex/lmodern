@@ -1,0 +1,4 @@
+* Check for new PFB files or changes in /FontName since LM 1.00 that should be
+  reflected in lmodern.defoma-hints
+* Register the OpenType fonts with Fontconfig?
+* Split the OpenType fonts (7 MB out of 44 MB) in an otf-lmodern package?

@@ -1,3 +1,47 @@
+lmodern (1.010x-1) experimental; urgency=low
+
+  * New upstream release (only changes the OTF files).
+
+  * Install the OpenType font files, as they are useful with XeTeX (cf.
+    http://lists.debian.org/debian-tex-maint/2007/03/msg00313.html).
+
+  * lmodern.cfg.in: comment out cork-lm.map, since it's only useful for
+    compatibility with old DVI files, and these should now be rebuilt with
+    the new font names.
+    The next step will be to remove the backward-compatibility links
+    (cork-lm.enc -> lm-ec.enc and similar, from compat.links). We
+    don't do it yet, otherwise even uncommenting cork-lm.map from
+    10lmodern.cfg won't be enough to work with old DVI files.
+
+  * Symlink the useful documentation files from /usr/share/doc/texmf/fonts/lm/
+    to /usr/share/doc/lmodern/, instead of copying them. Add new lm-hist.txt
+    and lm-info.pdf to these files.
+
+  * Don't Build-Depend on recode anymore, since its use was removed in 1.01-1.
+
+  * Update debian/copyright.in.
+
+  * debian.control: add home page and mention the OpenType format in the
+    description.
+
+  * lmodern.README.Debian: mention the OpenType format.
+
+  * debian/rules: ignore empty lines when comparing the monolithic lm.map
+    with the concatenation of the encoding-specific map files.
+
+  * debian/rules: don't compress PDF files.
+
+  * Add the build-arch target to debian/rules (cf.
+    http://lists.debian.org/debian-mentors/2006/12/msg00267.html).
+
+  * Add debian/TODO.
+
+  * Shut up lintian about /usr/share/doc/texmf/fonts/lm/GUST-FONT-LICENSE.txt.
+    Policy §12.5 says *nothing* about such files, and I think it's right to
+    leave it there, as upstream wanted it.
+
+ -- Florent Rougon <frn@debian.org>  Sun, 25 Mar 2007 11:12:35 +0200
+
 lmodern (1.01-1) experimental; urgency=low
 
   * new upstream release

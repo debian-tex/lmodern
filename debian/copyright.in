@@ -5,6 +5,8 @@ It was downloaded from:
 
     http://www.tug.org/tex-archive/help/Catalogue/entries/lm.html
 
+    (lm.zip, repacked into tar.gz format for dpkg-source)
+
 
 Upstream work
 -------------
@@ -14,13 +16,14 @@ The upstream README.eng file says:
   Font: The Latin Modern Family of Fonts
   Designer (Computer Modern Family of Fonts): Donald E. Knuth
   Author: Bogus\l{}aw Jackowski and Janusz M. Nowacki
-  Version: 1.00
-  Date: 13 IV 2006
+  Version: 1.010x
+  Date: 28 II 2007
+  Downloads: http://www.gust.org.pl/projects/e-foundry/latin-modern/
   License: 
-    % Copyright 2003--2006 by B. Jackowski and J.M. Nowacki
+    % Copyright 2003--2007 by B. Jackowski and J.M. Nowacki
     % (on behalf of TeX Users Groups).
-    % This work is released under the GUST Font Source License
-    %   -- see GUST-FONT-SOURCE-LICENSE.txt. 
+    % This work is released under the GUST Font License
+    %   -- see GUST-FONT-LICENSE.txt. 
     % This work has the LPPL maintenance status "maintained".
     % The Current Maintainer of this work is Bogus\l{}aw Jackowski
     %   and Janusz M. Nowacki.
@@ -37,7 +40,8 @@ The upstream README.eng file says:
   The project is supported by TeX users groups: CSTUG, DANTE eV, GUST,
   GUTenberg, NTG, and TUG.
 
-See the appendix B for the GUST Font Source License.
+
+See the appendix B for the GUST Font License.
 
 Please read the appendix A below if you want to examine the licensing terms 
 for the Computer Modern fonts in Type 1 format on which the Latin Modern fonts
@@ -47,8 +51,8 @@ are based.
 Debian packaging
 ----------------
 
-Copyright (c) 2004, 2005, 2006 Florent Rougon
-Copyright (c) 2005, 2006 Norbert Preining
+Copyright (c) 2004, 2005, 2006, 2007 Florent Rougon
+Copyright (c) 2005, 2006, 2007 Norbert Preining
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -111,9 +115,10 @@ duplicate here the relevant excerpt for your convenience:
   has requested that any alterations which yield different font metrics be
   given a different name.
 
-Appendix B -- GUST Font Source License
------------------------------------------------------------------------------
 
-What follows is the exact contents of GUST-FONT-SOURCE-LICENSE.txt from the
+Appendix B -- GUST Font License
+-------------------------------
+
+What follows is the exact contents of GUST-FONT-LICENSE.txt from the
 upstream distribution of the Latin Modern fonts.
 

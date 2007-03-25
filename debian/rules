@@ -1,15 +1,18 @@
 #! /usr/bin/make -f
 
 PKG                   := lmodern
-REL_PKG_INSTALL_DIR   := debian/$(PKG)
+PKG_INSTALL_DIR       := debian/$(PKG)
 
 INSTALL               := install
 INSTALL_FILE          := $(INSTALL) -p -o root -g root -m 644
 
 
-build: build-indep
+build: build-arch build-indep
 # We have nothing to do here but the Debian Policy says this target must
 # exist.
+
+build-arch:
+# Nothing to do here
 
 build-indep: build-indep-stamp
 
@@ -42,29 +45,20 @@ build-indep-stamp:
         # Upstream provides <texmf>/fonts/map/dvips/lm/lm.map that should be
         # equivalent to all the encoding-specific map files in 
         # <texmf>/fonts/map/dvips/lm/ but the replacement maps for CM, CS
-        # PL and VN fonts.
-        # Let's check if this is still the case, allowing us to only put
-        # lm.map and the lm-rep-*.map in <TEXMFMAIN>/fonts/map/dvips/lm/.
-        # Note: I don't use uniq because I won't accept an lm.map with
-        # repeated lines.
-        #
-        # Ah, this revealed that lm.map in LM 1.00 is incomplete.
+        # PL and VN fonts. Let's check if this is really the case.
 	@export LC_COLLATE=C \
 	&& a=$$(find fonts/map/dvips/lm \
               \( -name "*.map" -not -name lm.map -not -name "lm-rep-*.map" \) \
-              -print0 | xargs -0r cat | grep -Ev -e '^%' | sort) \
-	&& b=$$(sort < fonts/map/dvips/lm/lm.map | grep -Ev -e '^%') \
+              -print0 | xargs -0r cat | grep -Ev -e '^(%|[[:space:]]*$$)' \
+                      | sort) \
+	&& b=$$(sort < fonts/map/dvips/lm/lm.map | grep -Ev -e \
+                                                        '^(%|[[:space:]]*$$)') \
 	&& if [ "$$a" != "$$b" ]; then \
              { echo; \
                echo "Warning: fonts/map/dvips/lm/lm.map does not appear to" \
                     "be equivalent to"; \
                echo "the concatenation of the other map files found in" \
                     "fonts/map/dvips/lm/."; \
-               echo; \
-               echo "We are going to use the specific map files for LM 1.00," \
-                    "but the situation"; \
-               echo "may need to be reexamined for the next upstream" \
-                    "release."; \
                echo; \
              } >&2; \
            fi
@@ -121,6 +115,7 @@ binary-indep: build-indep
 
 	dh_installdirs \
           usr/share/texmf/fonts/type1/public/lm \
+          usr/share/texmf/fonts/opentype/public/lm \
           usr/share/texmf/fonts/afm/public/lm \
           usr/share/texmf/fonts/tfm/public/lm \
           usr/share/texmf/fonts/enc/dvips/lm \
@@ -137,11 +132,15 @@ binary-indep: build-indep
 
         # Install all the PFB files in the right place for TeX and friends
 	$(INSTALL_FILE) fonts/type1/public/lm/*.pfb \
-          "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/type1/public/lm"
+          "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/type1/public/lm"
+
+        # Install all the OpenType files in the right place for TeX and friends
+	$(INSTALL_FILE) fonts/opentype/public/lm/*.otf \
+          "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/opentype/public/lm"
 
         # Install all the AFM files in the right place for TeX and friends
 	for file in fonts/afm/public/lm/*.afm; do \
-          DEST_FILE="$(REL_PKG_INSTALL_DIR)/usr/share/texmf/$$file" \
+          DEST_FILE="$(PKG_INSTALL_DIR)/usr/share/texmf/$$file" \
           && cp "$$file" "$$DEST_FILE" \
           && chown root:root "$$DEST_FILE" \
           && chmod 644 "$$DEST_FILE"; \
@@ -157,21 +156,21 @@ binary-indep: build-indep
           "debian/$(PKG).fontlist-x11" >> "debian/$(PKG).links"
 
 	$(INSTALL_FILE) "debian/$(PKG).scale" \
-          "$(REL_PKG_INSTALL_DIR)/etc/X11/fonts/Type1"
+          "$(PKG_INSTALL_DIR)/etc/X11/fonts/Type1"
 	dh_installxfonts
 
 	$(INSTALL_FILE) fonts/tfm/public/lm/*.tfm \
-          "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/tfm/public/lm"
+          "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/tfm/public/lm"
 
 	$(INSTALL_FILE) fonts/enc/dvips/lm/*.enc \
-          "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/enc/dvips/lm"
+          "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/enc/dvips/lm"
 
         # Install the specific map files because the monolithic lm.map is
         # incomplete in LM 1.00.
 	find fonts/map/dvips/lm \
           \( -name "*.map" -not -name lm.map -not -name "lm-rep-*.map" \) \
           -print0 | xargs -0r $(INSTALL_FILE) \
-            -t "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
+            -t "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 
         # Declare these map files in lmodern.cfg
 	{ sed -nf debian/sed_scripts/extract-start \
@@ -187,25 +186,35 @@ binary-indep: build-indep
         # Also install the map files for replacement fonts for CS, CM, PL and
         # VN.
 	$(INSTALL_FILE) fonts/map/dvips/lm/lm-rep-*.map \
-	  "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
+	  "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 
-        # For backward compatibility:
         # install cork-lm.map which helps xdvi/dvips/etc for old dvi files
-        # with old file names. This should be removed for etch+1.
+        # with old file names. This file is not disabled by default
+        # in lmodern.cfg.
 	$(INSTALL_FILE) debian/cork-lm.map \
-	  "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
+	  "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
 
 	for file in tex/latex/lm/*.fd tex/latex/lm/*.sty; do \
           $(INSTALL_FILE) "$$file" \
-             "$(REL_PKG_INSTALL_DIR)/usr/share/texmf/tex/latex/lm"; \
+             "$(PKG_INSTALL_DIR)/usr/share/texmf/tex/latex/lm"; \
         done
 
-	for ext in tex pdf ; do \
-	  for file in doc/fonts/lm/*.$$ext; do \
-	    $(INSTALL_FILE) "$$file" \
-	      "$(REL_PKG_INSTALL_DIR)/usr/share/doc/texmf/fonts/lm"; \
-	  done; \
-        done;
+	for file in doc/fonts/lm/*; do \
+          $(INSTALL_FILE) "$$file" \
+            "$(PKG_INSTALL_DIR)/usr/share/doc/texmf/fonts/lm"; \
+        done
+
+        # Symlink the useful documentation files from
+        # /usr/share/doc/texmf/fonts/lm/ to /usr/share/doc/lmodern/.
+	{ echo "usr/share/doc/texmf/fonts/lm/README.eng" \
+               "usr/share/doc/lmodern/README"; \
+          echo "usr/share/doc/texmf/fonts/lm/MANIFEST.txt" \
+               "usr/share/doc/lmodern/MANIFEST.txt"; \
+          echo "usr/share/doc/texmf/fonts/lm/lm-hist.txt" \
+               "usr/share/doc/lmodern/lm-hist.txt"; \
+          echo "usr/share/doc/texmf/fonts/lm/lm-info.pdf" \
+               "usr/share/doc/lmodern/lm-info.pdf"; \
+        } >> "debian/$(PKG).links"
 
         # Install the standard conffile for update-updmap
 	dh_installtex --priority=10 mapfile=debian/lmodern.cfg
@@ -215,23 +224,16 @@ binary-indep: build-indep
 	dh_installdefoma
 
 	dh_installdocs debian/NEWS.Debian
-        # The README.eng in doc/fonts/lm/ has Unix-style end-of-line terminators
-        # whereas README{,.eng} in the upstream root directory use the DOS
-        # style... So, let's use doc/fonts/lm/README.eng.
-	$(INSTALL_FILE) doc/fonts/lm/README.eng \
-          "$(REL_PKG_INSTALL_DIR)/usr/share/doc/lmodern/README"
-	$(INSTALL_FILE) doc/fonts/lm/MANIFEST.txt \
-          "$(REL_PKG_INSTALL_DIR)/usr/share/doc/lmodern/MANIFEST.txt"
 
 	$(INSTALL_FILE) debian/font-substitution/* \
-          "$(REL_PKG_INSTALL_DIR)/usr/share/doc/$(PKG)/font-substitution"
+          "$(PKG_INSTALL_DIR)/usr/share/doc/$(PKG)/font-substitution"
 
 	dh_installchangelogs
 
 	$(INSTALL_FILE) debian/$(PKG).lintian-overrides \
-          "$(REL_PKG_INSTALL_DIR)/usr/share/lintian/overrides/$(PKG)"
+          "$(PKG_INSTALL_DIR)/usr/share/lintian/overrides/$(PKG)"
 
-	dh_compress
+	dh_compress -X.pdf
 	dh_fixperms
 	dh_installdeb
 	dh_gencontrol
@@ -244,4 +246,4 @@ binary-arch:
 
 binary: binary-indep binary-arch
 
-.PHONY: clean build build-indep binary binary-indep binary-arch
+.PHONY: clean build build-arch build-indep binary binary-indep binary-arch

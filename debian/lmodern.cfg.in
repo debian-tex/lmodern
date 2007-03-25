@@ -28,5 +28,7 @@
 # machinery.
 @LMODERN_BASIC_MAP_DECLARATIONS@
 #
-# This map file is for compatibility with old DVI files.
-Map cork-lm.map
+# This map file can be enabled for compatibility with old DVI files, but the
+# better thing to do instead of using this workaround is to rebuild these
+# files with new LM fonts so that they use up-to-date font names.
+# Map cork-lm.map
