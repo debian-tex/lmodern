@@ -1,3 +1,9 @@
+lmodern (1.010x-2) unstable; urgency=low
+
+  * Upload to unstable, no changes to the package.
+
+ -- Norbert Preining <preining@debian.org>  Fri, 13 Apr 2007 08:43:51 +0200
+
 lmodern (1.010x-1) experimental; urgency=low
 
   * New upstream release (only changes the OTF files).
