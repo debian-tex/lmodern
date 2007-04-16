@@ -1,3 +1,9 @@
+lmodern (1.010x-3) unstable; urgency=low
+
+  * Rebuild with tex-common 1.7 (closes: #419108).
+
+ -- Florent Rougon <frn@debian.org>  Mon, 16 Apr 2007 13:35:40 +0200
+
 lmodern (1.010x-2) unstable; urgency=low
 
   * Upload to unstable, no changes to the package.
