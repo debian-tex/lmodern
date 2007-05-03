@@ -1,3 +1,10 @@
+lmodern (1.010x-4~1) unstable; urgency=low
+
+  * update the location of the original download in the copyright file
+    (Closes: #421998)
+
+ -- Norbert Preining <preining@debian.org>  Thu, 03 May 2007 09:20:35 +0200
+
 lmodern (1.010x-3) unstable; urgency=low
 
   * Rebuild with tex-common 1.7 (closes: #419108).
