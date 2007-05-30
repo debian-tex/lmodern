@@ -1,7 +1,10 @@
 lmodern (1.010x-4~1) unstable; urgency=low
 
-  * update the location of the original download in the copyright file
-    (Closes: #421998)
+  * Update the location of the original download in the copyright file
+    (Closes: #421998). [preining]
+  
+  * Use dpkg-query in lmodern.preinst instead of parsing
+    /var/lib/dpkg/status ourselves. [frn]
 
  -- Norbert Preining <preining@debian.org>  Thu, 03 May 2007 09:20:35 +0200
 

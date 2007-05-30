@@ -83,15 +83,42 @@ EndOfEmptyConfigFile
 	    fi
 	fi
     fi
+
     return 0
 }
 
+# Retrieve the MD5 sum of a conffile from the dpkg database.
 #
-# We have to move the map and dvips config file into /usr/share/texmf
-# but want to preserve changes done by the user!
+# $1 -- package name
+# $2 -- full (absolute) path to the conffile; this path will be matched
+#       against the output of:
 #
-dpkg_md5sum(){
-  grep "$1[[:space:]]" /var/lib/dpkg/status | cut -f 3 -d ' '
+#         dpkg-query -W -f='${Conffiles}' <package>
+#
+dpkg_md5sum()
+{
+    package="$1"
+    conffile="$2"
+
+    found=0
+
+    dpkg-query -W -f='${Conffiles}' "$package" \
+      | while read file sum; do
+            if [ "$file" = "$conffile" ]; then
+                echo "$sum"
+                found=1
+                break
+            fi
+        done
+
+    if [ $found -eq 1 ];
+        res=0
+    else
+        echo "Conffile '$conffile' not found in package '$package'" >&2
+        res=1
+    fi
+
+    return $res
 }
 
 move_very_old_map_file_away ()
@@ -100,7 +127,7 @@ move_very_old_map_file_away ()
     if ! [ -r $oldfile ] ; then
 	return 0
     fi
-    originalmd5sum=$(dpkg_md5sum "$oldfile")
+    originalmd5sum=$(dpkg_md5sum lmodern "$oldfile")
     installedmd5sum=$(md5sum "$oldfile" |  cut -d ' ' -f 1)
     if [ "$originalmd5sum" = "$installedmd5sum" ] ; then
         echo "Removing obsolete, unchanged conffile $oldfile"
@@ -116,17 +143,20 @@ and can be safely deleted. If you want to adapt the lmodern map file,
 please make a copy of /usr/share/texmf/fonts/map/dvips/lm/lm.map
 and put it into /etc/texmf/fonts/map/dvips/lm/lm.map." >&2
     fi
+
+    return 0
 }
 
 config_move ()
 {
     mode="$1"
-    oldfile="$2"
-    newloc="$3"
+    package="$2"
+    oldfile="$3"
+    newloc="$4"
 
-    originalmd5sum=$(dpkg_md5sum "$oldfile")
+    originalmd5sum=$(dpkg_md5sum "$package" "$oldfile")
 
-    if ! [ -r $oldfile ] ; then
+    if ! [ -e "$oldfile" ] ; then
         return 0
     fi
     oldloc=$(dirname "$oldfile")
@@ -160,6 +190,8 @@ config_move ()
             exit 1
             ;;
     esac
+
+    return 0
 }
 
 
@@ -185,7 +217,7 @@ if [ $# -eq 2 ]  && ( [ "$1" = "install" ] || [ "$1" = "upgrade" ] ); then
     # lm.map is still in /etc/texmf/map/dvips/lm/.
     if dpkg --compare-versions "$2" gt 0.92-7 \
         && dpkg --compare-versions "$2" lt 0.99.3-1; then
-	config_move remove_dir /etc/texmf/map/dvips/lm/lm.map \
+	config_move remove_dir lmodern /etc/texmf/map/dvips/lm/lm.map \
             /etc/texmf/fonts/map/dvips/lm
     fi
 
@@ -200,8 +232,8 @@ if [ $# -eq 2 ]  && ( [ "$1" = "install" ] || [ "$1" = "upgrade" ] ); then
     # /etc/X11/fonts/X11R7/Type1/lmodern.scale back to /etc/X11/fonts/Type1 if
     # upgrading from 0.99.3-3.
     if [ "$2" = 0.99.3-3 ]; then
-	config_move keep_dir /etc/X11/fonts/X11R7/Type1/lmodern.scale \
-            /etc/X11/fonts/Type1
+	config_move keep_dir lmodern \
+            /etc/X11/fonts/X11R7/Type1/lmodern.scale /etc/X11/fonts/Type1
     fi
     
 fi
