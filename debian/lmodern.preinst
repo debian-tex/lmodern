@@ -111,7 +111,7 @@ dpkg_md5sum()
             fi
         done
 
-    if [ $found -eq 1 ];
+    if [ $found -eq 1 ]; then
         res=0
     else
         echo "Conffile '$conffile' not found in package '$package'" >&2
