@@ -104,6 +104,7 @@ dpkg_md5sum()
             | grep -F " $conffile " | cut -d ' ' -f 3)
 
     if [ -n "$sum" ]; then
+        echo "$sum"
         res=0
     else
         echo "Conffile '$conffile' not found in package '$package'" >&2
@@ -119,7 +120,7 @@ move_very_old_map_file_away ()
     if ! [ -r $oldfile ] ; then
 	return 0
     fi
-    originalmd5sum=$(dpkg_md5sum lmodern "$oldfile")
+    originalmd5sum=$(dpkg_md5sum lmodern "$oldfile") || exit 1
     installedmd5sum=$(md5sum "$oldfile" |  cut -d ' ' -f 1)
     if [ "$originalmd5sum" = "$installedmd5sum" ] ; then
         echo "Removing obsolete, unchanged conffile $oldfile"
@@ -146,7 +147,7 @@ config_move ()
     oldfile="$3"
     newloc="$4"
 
-    originalmd5sum=$(dpkg_md5sum "$package" "$oldfile")
+    originalmd5sum=$(dpkg_md5sum "$package" "$oldfile") || exit 1
 
     if ! [ -e "$oldfile" ] ; then
         return 0
