@@ -100,18 +100,10 @@ dpkg_md5sum()
     package="$1"
     conffile="$2"
 
-    found=0
+    sum=$(dpkg-query -W -f='${Conffiles}' "$package" \
+            | grep -F " $conffile " | cut -d ' ' -f 3)
 
-    dpkg-query -W -f='${Conffiles}' "$package" \
-      | while read file sum; do
-            if [ "$file" = "$conffile" ]; then
-                echo "$sum"
-                found=1
-                break
-            fi
-        done
-
-    if [ $found -eq 1 ]; then
+    if [ -n "$sum" ]; then
         res=0
     else
         echo "Conffile '$conffile' not found in package '$package'" >&2
