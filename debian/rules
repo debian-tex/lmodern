@@ -217,7 +217,8 @@ binary-indep: build-indep
         } >> "debian/$(PKG).links"
 
         # Install the standard conffile for update-updmap
-	dh_installtex --priority=10 mapfile=debian/lmodern.cfg
+	dh_installtex --priority=10 mapfile=debian/lmodern.cfg \
+		texmftrees=/usr/share/texmf-texlive
 
 	dh_link
 

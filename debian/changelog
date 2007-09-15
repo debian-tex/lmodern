@@ -1,12 +1,15 @@
-lmodern (1.010x-4~1) unstable; urgency=low
+lmodern (1.010x-4) unstable; urgency=low
 
   * Update the location of the original download in the copyright file
     (Closes: #421998). [preining]
-  
+
   * Use dpkg-query in lmodern.preinst instead of parsing
     /var/lib/dpkg/status ourselves. [frn]
 
- -- Norbert Preining <preining@debian.org>  Thu, 03 May 2007 09:20:35 +0200
+  * rehash /usr/share/texmf-texlive since we do not depend on texlive-base-bin
+    (Closes: #441526)
+
+ -- Norbert Preining <preining@debian.org>  Sat, 15 Sep 2007 11:26:46 +0200
 
 lmodern (1.010x-3) unstable; urgency=low
 
