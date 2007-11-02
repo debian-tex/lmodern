@@ -6,6 +6,8 @@ Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuh
 Build-Depends: debhelper (>= 5.0.35)
 Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 1.1)
 Standards-Version: 3.7.2
+Vcs-Svn: svn://svn.debian.org/svn/debian-tex/lmodern/trunk
+Vcs-Browser: http://svn.debian.org/wsvn/debian-tex/lmodern/trunk/
 
 Package: lmodern
 Section: tex
