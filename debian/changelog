@@ -1,8 +1,10 @@
-lmodern (1.010x-5~1) unstable; urgency=low
+lmodern (1.010x-5~1) unstable; urgency=medium
 
   * add Vcs-Svn and Vcs-Browser fields to debian/control [preining]
+  * Bump build-depends on tex-common to version 1.11 (closes: #466036, a
+    serious bug, hence medium urgency).
 
- -- Norbert Preining <preining@debian.org>  Fri, 02 Nov 2007 00:48:58 +0100
+ -- Frank Küster <frank@debian.org>  Sun, 24 Feb 2008 18:53:13 +0100
 
 lmodern (1.010x-4) unstable; urgency=low
 
