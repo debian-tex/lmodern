@@ -8,6 +8,7 @@ Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 1.11)
 Standards-Version: 3.7.3
 Vcs-Svn: svn://svn.debian.org/svn/debian-tex/lmodern/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/debian-tex/lmodern/trunk/
+Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/
 
 Package: lmodern
 Section: tex
@@ -35,5 +36,3 @@ Description: scalable PostScript and OpenType fonts based on Computer Modern
  applications such as Ghostscript and Fontconfig. Finally, they are
  made available to the core X11 fonts system, which makes it possible
  to use them in any X application.
- .
-  Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/

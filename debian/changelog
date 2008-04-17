@@ -4,8 +4,9 @@ lmodern (1.010x-5) unstable; urgency=medium
   * Bump build-depends on tex-common to version 1.11 (closes: #466036, a
     serious bug, hence medium urgency).
   * bump standards version to 3.7.3, no changes necessary
+  * move the homepage into its own field in debian/control
 
- -- Norbert Preining <preining@debian.org>  Thu, 17 Apr 2008 07:58:34 +0200
+ -- Norbert Preining <preining@debian.org>  Thu, 17 Apr 2008 08:09:05 +0200
 
 lmodern (1.010x-4) unstable; urgency=low
 
