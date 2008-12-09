@@ -3,8 +3,11 @@ lmodern (1.106-1) experimental; urgency=low
   * new upstream version (Closes: #469437)
   * since this release changes font names and mappings it is going into
     experimental for now
+  * debian packaging changes:
+    - bump standards version to 3.8.0
+    - bump dephelper compat to 7
 
- -- Norbert Preining <preining@debian.org>  Tue, 09 Dec 2008 01:18:07 +0100
+ -- Norbert Preining <preining@debian.org>  Tue, 09 Dec 2008 01:51:38 +0100
 
 lmodern (1.010x-5) unstable; urgency=medium
 
