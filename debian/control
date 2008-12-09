@@ -14,7 +14,7 @@ Package: lmodern
 Section: tex
 Architecture: all
 Depends: defoma (>= 0.5.0), ${misc:Depends}
-Conflicts: lm, lmodern-x11
+Conflicts: lm, lmodern-x11, context (<= 2008.10.31-1)
 Replaces: lm, lmodern-x11
 Description: scalable PostScript and OpenType fonts based on Computer Modern
  The Latin Modern fonts, also known as "lm fonts", are a set of
