@@ -11,16 +11,16 @@ It was downloaded from:
 Upstream work
 -------------
 
-The upstream README.eng file says:
+The upstream README-Latin-Modern.txt file says:
 
   Font: The Latin Modern Family of Fonts
   Designer (Computer Modern Family of Fonts): Donald E. Knuth
   Author: Bogus\l{}aw Jackowski and Janusz M. Nowacki
-  Version: 1.010x
-  Date: 28 II 2007
+  Version: 1.106
+  Date: 22 I 2008
   Downloads: http://www.gust.org.pl/projects/e-foundry/latin-modern/
   License: 
-    % Copyright 2003--2007 by B. Jackowski and J.M. Nowacki
+    % Copyright 2003--2008 by B. Jackowski and J.M. Nowacki
     % (on behalf of TeX Users Groups).
     % This work is released under the GUST Font License
     %   -- see GUST-FONT-LICENSE.txt. 
@@ -52,7 +52,7 @@ Debian packaging
 ----------------
 
 Copyright (c) 2004, 2005, 2006, 2007 Florent Rougon
-Copyright (c) 2005, 2006, 2007 Norbert Preining
+Copyright (c) 2005, 2006, 2007, 2008 Norbert Preining
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by

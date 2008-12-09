@@ -24,13 +24,15 @@ build-indep-stamp:
           -e '^\./debian/' \
           -e '^\./fonts/type1/public/lm/[^/]*\.pf[bm]$$' \
           -e '^\./fonts/afm/public/lm/[^/]*\.afm$$' \
+          -e '^\./fonts/afm/public/lm/[^/]*\.aft$$' \
           -e '^\./fonts/tfm/public/lm/[^/]*\.tfm$$' \
 	  -e '^\./fonts/map/dvips/lm/[^/]*\.map$$' \
+	  -e '^\./fonts/map/dvipdfm/lm/[^/]*\.map$$' \
 	  -e '^\./fonts/enc/dvips/lm/[^/]*\.enc$$' \
 	  -e '^\./fonts/opentype/public/lm/[^/]*\.otf$$' \
           -e '^\./tex/latex/lm/[^/]*\.(fd|sty)$$' \
 	  -e '^\./(README\.eng|README)$$' \
-	  -e '^\./(lm1\.010mt1\.zip)$$' \
+	  -e '^\./(lm1\.106mt1\.zip)$$' \
           -e '^\./doc/fonts/lm/[^/]*\.(tex|pdf|txt|eng)$$' || true) && \
           if [ -n "$$newfiles" ]; then \
               { echo "New files were found in the patched tarball" \
@@ -206,9 +208,9 @@ binary-indep: build-indep
 
         # Symlink the useful documentation files from
         # /usr/share/doc/texmf/fonts/lm/ to /usr/share/doc/lmodern/.
-	{ echo "usr/share/doc/texmf/fonts/lm/README.eng" \
+	{ echo "usr/share/doc/texmf/fonts/lm/README-Latin-Modern.txt" \
                "usr/share/doc/lmodern/README"; \
-          echo "usr/share/doc/texmf/fonts/lm/MANIFEST.txt" \
+          echo "usr/share/doc/texmf/fonts/lm/MANIFEST-Latin-Modern.txt" \
                "usr/share/doc/lmodern/MANIFEST.txt"; \
           echo "usr/share/doc/texmf/fonts/lm/lm-hist.txt" \
                "usr/share/doc/lmodern/lm-hist.txt"; \
