@@ -1,5 +1,6 @@
 lmodern (1.106-1) unstable; urgency=low
 
+  * change section to "fonts"
   * new upstream version (Closes: #469437)
   * this release changes font names and mappings, many things might break
   * debian packaging changes:
