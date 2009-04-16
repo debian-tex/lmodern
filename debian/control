@@ -4,8 +4,8 @@ Priority: optional
 Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuhito KOHDA <kohda@debian.org>, Frank Küster <frank@debian.org>, Florent Rougon <frn@debian.org>, Norbert Preining <preining@debian.org>
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 1.15)
-Standards-Version: 3.8.0
+Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 1.18)
+Standards-Version: 3.8.1
 Vcs-Svn: svn://svn.debian.org/svn/debian-tex/lmodern/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/debian-tex/lmodern/trunk/
 Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/
