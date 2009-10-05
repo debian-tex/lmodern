@@ -8,9 +8,8 @@ lmodern (2.003-1) experimental; urgency=low
     - bump dephelper compat to 7
     - conflict with context (<= 2008.10.31-1) since that still ships the
       patch for old lmodern font names
-    - bump build-dep on tex-common to >= 2.00 to get triggers support
 
- -- Norbert Preining <preining@debian.org>  Mon, 05 Oct 2009 13:42:24 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 05 Oct 2009 14:26:41 +0900
 
 lmodern (1.010x-5) unstable; urgency=medium
 
