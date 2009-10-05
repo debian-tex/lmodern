@@ -1,16 +1,16 @@
-lmodern (1.106-1) unstable; urgency=low
+lmodern (2.003-1) experimental; urgency=low
 
   * change section to "fonts"
-  * new upstream version (Closes: #469437)
+  * new upstream version(s) (Closes: #469437)
   * this release changes font names and mappings, many things might break
   * debian packaging changes:
-    - bump standards version to 3.8.1
+    - bump standards version to 3.8.3
     - bump dephelper compat to 7
     - conflict with context (<= 2008.10.31-1) since that still ships the
       patch for old lmodern font names
-    - bump build-dep on tex-common to >= 1.18 to get triggers support
+    - bump build-dep on tex-common to >= 2.00 to get triggers support
 
- -- Norbert Preining <preining@debian.org>  Thu, 16 Apr 2009 17:23:46 +0200
+ -- Norbert Preining <preining@debian.org>  Mon, 05 Oct 2009 13:42:24 +0900
 
 lmodern (1.010x-5) unstable; urgency=medium
 
