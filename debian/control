@@ -11,7 +11,7 @@ Vcs-Browser: http://svn.debian.org/wsvn/debian-tex/lmodern/trunk/
 Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/
 
 Package: lmodern
-Section: tex
+Section: fonts
 Architecture: all
 Depends: defoma (>= 0.5.0), ${misc:Depends}
 Conflicts: lm, lmodern-x11, context (<= 2008.10.31-1)

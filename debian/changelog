@@ -1,3 +1,10 @@
+lmodern (2.004-2) experimental; urgency=low
+
+  * UNRELEASED
+  * use section fonts instead of tex
+
+ -- Norbert Preining <preining@debian.org>  Mon, 12 Oct 2009 21:12:57 +0900
+
 lmodern (2.004-1) experimental; urgency=low
 
   * change section to "fonts"
