@@ -1,9 +1,9 @@
-lmodern (2.004-2) experimental; urgency=low
+lmodern (2.004.1-1) experimental; urgency=low
 
-  * UNRELEASED
   * use section fonts instead of tex
+  * new upstream release without version number change, fixed some .fd files
 
- -- Norbert Preining <preining@debian.org>  Mon, 12 Oct 2009 21:12:57 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 17 Nov 2009 19:57:45 +0900
 
 lmodern (2.004-1) experimental; urgency=low
 
