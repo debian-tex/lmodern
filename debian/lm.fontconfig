@@ -1,0 +1,58 @@
+<?xml version='1.0'?>
+<!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
+<fontconfig>
+    <match target="font" >
+        <test qual="any" name="family">
+            <string>LMMathExtension10</string>
+            <string>LMMathItalic10</string>
+            <string>LMMathItalic12</string>
+            <string>LMMathItalic5</string>
+            <string>LMMathItalic6</string>
+            <string>LMMathItalic7</string>
+            <string>LMMathItalic8</string>
+            <string>LMMathItalic9</string>
+            <string>LMMathSymbols10</string>
+            <string>LMMathSymbols5</string>
+            <string>LMMathSymbols6</string>
+            <string>LMMathSymbols7</string>
+            <string>LMMathSymbols8</string>
+            <string>LMMathSymbols9</string>
+            <string>LMMono10</string>
+            <string>LMMono12</string>
+            <string>LMMono8</string>
+            <string>LMMono9</string>
+            <string>LMMonoCaps10</string>
+            <string>LMMonoLt10</string>
+            <string>LMMonoLtCond10</string>
+            <string>LMMonoProp10</string>
+            <string>LMMonoPropLt10</string>
+            <string>LMMonoSlant10</string>
+            <string>LMRoman10</string>
+            <string>LMRoman12</string>
+            <string>LMRoman17</string>
+            <string>LMRoman5</string>
+            <string>LMRoman6</string>
+            <string>LMRoman7</string>
+            <string>LMRoman8</string>
+            <string>LMRoman9</string>
+            <string>LMRomanCaps10</string>
+            <string>LMRomanDemi10</string>
+            <string>LMRomanDunh10</string>
+            <string>LMRomanSlant10</string>
+            <string>LMRomanSlant12</string>
+            <string>LMRomanSlant17</string>
+            <string>LMRomanSlant8</string>
+            <string>LMRomanSlant9</string>
+            <string>LMRomanUnsl10</string>
+            <string>LMSans10</string>
+            <string>LMSans12</string>
+            <string>LMSans17</string>
+            <string>LMSans8</string>
+            <string>LMSans9</string>
+            <string>LMSansDemiCond10</string>
+            <string>LMSansQuot8</string>
+        </test>
+        <edit name="autohint" mode="assign"><bool>true</bool></edit>
+    </match>
+</fontconfig>
+
