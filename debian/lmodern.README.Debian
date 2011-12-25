@@ -8,21 +8,9 @@ This package makes the Latin Modern fonts available to:
   - the TeX typesetting system (TeX, LaTeX, pdfTeX, pdfLaTeX, xdvi,
     Dvips, etc.);
 
-  - defoma (this is a generic framework available in Debian whose
-    purpose is to help the packages that use fonts find the fonts
-    installed by the packages that provide fonts. defoma-registered
-    fonts are also classified by family, weight, etc. so that defoma can
-    perform font substitution whenever it is necessary); Fontconfig and
-    Ghostscript are two noteworthy applications that take advantage of
-    defoma-registered fonts in Debian;
+  - desktop environments;
 
   - the core X11 fonts system[1], for use by any X application.
-
-
-How to use the Latin Modern fonts with defoma-aware applications?
------------------------------------------------------------------
-
-You have nothing particular to do. This package already did the job.
 
 
 How to use the Latin Modern fonts with X11?

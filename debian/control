@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuhito KOHDA <kohda@debian.org>, Frank Küster <frank@debian.org>, Florent Rougon <frn@debian.org>, Norbert Preining <preining@debian.org>
 Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: defoma (>= 0.7.0), tex-common (>= 1.18)
+Build-Depends-Indep: tex-common (>= 1.18)
 Standards-Version: 3.8.3
 Vcs-Svn: svn://svn.debian.org/svn/debian-tex/lmodern/trunk
 Vcs-Browser: http://svn.debian.org/wsvn/debian-tex/lmodern/trunk/
@@ -13,7 +13,7 @@ Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/
 Package: lmodern
 Section: fonts
 Architecture: all
-Depends: defoma (>= 0.5.0), ${misc:Depends}
+Depends: ${misc:Depends}
 Conflicts: lm, lmodern-x11, context (<= 2008.10.31-1)
 Replaces: lm, lmodern-x11
 Description: scalable PostScript and OpenType fonts based on Computer Modern
