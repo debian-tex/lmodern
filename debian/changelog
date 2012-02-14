@@ -1,5 +1,6 @@
 lmodern (2.004.1-4~UNRELEASED) unstable; urgency=low
 
+  [ Hilmar Preuße ]
   * Use maintscript support in dh_installdeb rather than writing out
     dpkg-maintscript-helper commands by hand. Thanks to Colin Watson
     (Closes: #659608)
