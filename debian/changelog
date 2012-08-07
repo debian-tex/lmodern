@@ -1,4 +1,4 @@
-lmodern (2.004.1-6) unstable; urgency=low
+lmodern (2.004.2-1) unstable; urgency=low
 
   * ship lmmath-regular.otf font that was added to the TeX Live
     distribution and is necessary for the default math font setup

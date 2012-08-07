@@ -139,8 +139,6 @@ binary-indep: build-indep
         # Install all the OpenType files in the right place for TeX and friends
 	$(INSTALL_FILE) fonts/opentype/public/lm/*.otf \
           "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/opentype/public/lm"
-	$(INSTALL_FILE) debian/lmmath-regular.otf \
-	  "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/opentype/public/lm"
 
         # Install all the AFM files in the right place for TeX and friends
 	for file in fonts/afm/public/lm/*.afm; do \
