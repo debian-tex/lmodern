@@ -1,14 +1,5 @@
 #! /usr/bin/make -f
 
-PKG                   := lmodern
-PKGFONTS              := fonts-lmodern
-PKG_INSTALL_DIR       := debian/$(PKG)
-PKGFONTS_INSTALL_DIR  := debian/$(PKGFONTS)
-
-INSTALL               := install
-INSTALL_FILE          := $(INSTALL) -p -o root -g root -m 644
-
-
 build: build-arch build-indep
 # We have nothing to do here but the Debian Policy says this target must
 # exist.
@@ -67,19 +58,6 @@ build-indep-stamp:
              } >&2; \
            fi
 
-        # Generate $(PKG).scale from $(PKG).defoma-hints (since it contains
-        # nice hand-crafted XLFD names for the fonts).
-	sed -nf debian/sed_scripts/gen-fonts.scale \
-          "debian/$(PKG).defoma-hints" > "debian/$(PKG).scale.tmp"
-	{ wc -l < "debian/$(PKG).scale.tmp" && \
-          cat "debian/$(PKG).scale.tmp"; \
-        } > "debian/$(PKG).scale"
-
-        # The following generated list should be safe with respect to font
-        # file names containing spaces (there is one name per line)...
-	sed -ne 's/^[[:blank:]]*begin[[:blank:]]\{1,\}.*[/]\([^/]\{1,\}\)\.pfb[[:blank:]]*$$/\1/p' \
-          < "debian/$(PKG).defoma-hints" > "debian/$(PKG).fontlist-x11"
-
         # Generate the actual copyright file from copyright.in and
         # the GUST license
 	cat debian/copyright.in doc/fonts/lm/GUST-FONT-LICENSE.TXT \
@@ -90,15 +68,11 @@ build-indep-stamp:
 clean:
 	dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
 	dh_testroot
-        # debian/$(PKG).links is automatically generated from the list of
+        # debian/lmodern.links is automatically generated from the list of
         # fonts to declare to X11 among other things, so we have to delete
         # it here.
-        # debian/copyright and debian/lmodern.cfg are automatically generated
-        # from the respective .in files.
-	rm -f build-indep-stamp \
-              "debian/$(PKG).scale.tmp" "debian/$(PKG).scale" \
-              "debian/$(PKG).fontlist-x11" "debian/$(PKG).links" \
-	      debian/copyright
+        # debian/copyright is automatically generated from the .in file
+	rm -f build-indep-stamp debian/lmodern.links debian/copyright
 	dh_clean
 
 binary-indep: build-indep
@@ -107,27 +81,24 @@ binary-indep: build-indep
 	dh_clean
 
         # We will call dh_link only once for the build, with all desired links
-        # specified in $(PKG).links because it is much faster than spawning
+        # specified in lmodern.links because it is much faster than spawning
         # a dh_link (actually, Perl) process for every symbolic link in this
-        # package. So, $(PKG).links starts as an empty file and (target, link)
-        # pairs will be added to it in the relevant places.
-	cat "debian/lmodern.links.in" > "debian/$(PKG).links"
+        # package. So, lmodern.links starts from the respective .in file
+	cat debian/lmodern.links.in > debian/lmodern.links
 
-        # Setup symlinks so that X can see the AFM and PFB files as well.
-        # Note: we use debian/$(PKG).fontlist-x11 because we are not making
-        #       each and every font file available to X (lmr10 and lmr12
-        #       are very similar, for instance; including all the fonts
-        #       would bring virtually nothing and would terribly clutter
-        #       font selection menus and confuse users).
-	sed -nf debian/sed_scripts/gen-x-fonts-links-list \
-          "debian/$(PKG).fontlist-x11" >> "debian/$(PKG).links"
+	# mind the $$ to trick make into using the right quotes
+	tail -n+2 debian/lmodern.scale | \
+	  awk -F. '{print$$1}' | sort | uniq | \
+	  sed -ne 's!^\(.*\)$$!usr/share/texmf/fonts/type1/public/lm/\1.pfb usr/share/fonts/X11/Type1/\1.pfb\nusr/share/texmf/fonts/afm/public/lm/\1.afm usr/share/fonts/X11/Type1/\1.afm!p' \
+	  >> debian/lmodern.links
 
 	dh_install
 	dh_installxfonts
 
-        # Install the standard conffile for update-updmap
+	# the first call works only on the lmodern package, not all
 	dh_installtex map=Map,lm.map
-	dh_installtex -p $(PKGFONTS)
+	# since we are shipping files in texmf trees, call dh_installtex, too
+	dh_installtex -p fonts-lmodern
 
 	dh_link
 	dh_installdocs
