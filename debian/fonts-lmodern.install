@@ -1,0 +1,3 @@
+fonts/opentype/public/lm/*.otf usr/share/texmf/fonts/opentype/public/lm
+doc/fonts/lm/* usr/share/doc/texmf/fonts/lm
+debian/65-fonts-lmodern.conf etc/fonts/conf.avail

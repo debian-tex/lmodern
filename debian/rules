@@ -1,7 +1,9 @@
 #! /usr/bin/make -f
 
 PKG                   := lmodern
+PKGFONTS              := fonts-lmodern
 PKG_INSTALL_DIR       := debian/$(PKG)
+PKGFONTS_INSTALL_DIR  := debian/$(PKGFONTS)
 
 INSTALL               := install
 INSTALL_FILE          := $(INSTALL) -p -o root -g root -m 644
@@ -96,7 +98,7 @@ clean:
 	rm -f build-indep-stamp \
               "debian/$(PKG).scale.tmp" "debian/$(PKG).scale" \
               "debian/$(PKG).fontlist-x11" "debian/$(PKG).links" \
-	      debian/copyright debian/lmodern.cfg
+	      debian/copyright
 	dh_clean
 
 binary-indep: build-indep
@@ -109,45 +111,7 @@ binary-indep: build-indep
         # a dh_link (actually, Perl) process for every symbolic link in this
         # package. So, $(PKG).links starts as an empty file and (target, link)
         # pairs will be added to it in the relevant places.
-	: > "debian/$(PKG).links"
-
-        # Add the set of backward compatibility links
-        # This should be removed for etch+1
-	cat "debian/compat.links" >> "debian/$(PKG).links"
-
-	dh_installdirs \
-          usr/share/texmf/fonts/type1/public/lm \
-          usr/share/texmf/fonts/opentype/public/lm \
-          usr/share/texmf/fonts/afm/public/lm \
-          usr/share/texmf/fonts/tfm/public/lm \
-          usr/share/texmf/fonts/enc/dvips/lm \
-	  usr/share/texmf/fonts/map/dvips/lm \
-          usr/share/texmf/tex/latex/lm \
-          usr/share/doc/texmf/fonts/lm \
-          usr/share/doc/$(PKG)/font-substitution \
-          etc/X11/fonts/Type1 \
-	  etc/fonts/conf.avail \
-          usr/share/fonts/X11/Type1 \
-          usr/share/lintian/overrides
-
-        # Note: we won't install the PFM files because we already have the
-        #       AFM files which are preferred in general.
-
-        # Install all the PFB files in the right place for TeX and friends
-	$(INSTALL_FILE) fonts/type1/public/lm/*.pfb \
-          "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/type1/public/lm"
-
-        # Install all the OpenType files in the right place for TeX and friends
-	$(INSTALL_FILE) fonts/opentype/public/lm/*.otf \
-          "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/opentype/public/lm"
-
-        # Install all the AFM files in the right place for TeX and friends
-	for file in fonts/afm/public/lm/*.afm; do \
-          DEST_FILE="$(PKG_INSTALL_DIR)/usr/share/texmf/$$file" \
-          && cp "$$file" "$$DEST_FILE" \
-          && chown root:root "$$DEST_FILE" \
-          && chmod 644 "$$DEST_FILE"; \
-        done
+	cat "debian/lmodern.links.in" > "debian/$(PKG).links"
 
         # Setup symlinks so that X can see the AFM and PFB files as well.
         # Note: we use debian/$(PKG).fontlist-x11 because we are not making
@@ -158,88 +122,17 @@ binary-indep: build-indep
 	sed -nf debian/sed_scripts/gen-x-fonts-links-list \
           "debian/$(PKG).fontlist-x11" >> "debian/$(PKG).links"
 
-	$(INSTALL_FILE) "debian/65-$(PKG).conf" \
-	   "$(PKG_INSTALL_DIR)/etc/fonts/conf.avail"
-
-	$(INSTALL_FILE) "debian/$(PKG).scale" \
-          "$(PKG_INSTALL_DIR)/etc/X11/fonts/Type1"
+	dh_install
 	dh_installxfonts
 
-	$(INSTALL_FILE) fonts/tfm/public/lm/*.tfm \
-          "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/tfm/public/lm"
-
-	$(INSTALL_FILE) fonts/enc/dvips/lm/*.enc \
-          "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/enc/dvips/lm"
-
-        # Install the specific map files because the monolithic lm.map is
-        # incomplete in LM 1.00.
-	find fonts/map/dvips/lm \
-          \( -name "*.map" -not -name lm.map -not -name "lm-rep-*.map" \) \
-          -print0 | xargs -0r $(INSTALL_FILE) \
-            -t "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
-
-        # Declare these map files in lmodern.cfg
-	{ sed -nf debian/sed_scripts/extract-start \
-            "debian/lmodern.cfg.in" && \
-          find fonts/map/dvips/lm \
-            \( -name "*.map" -not -name lm.map -not -name "lm-rep-*.map" \) \
-            -print | while read f; do echo "Map $$(basename "$$f")"; done \
-                   | sort && \
-          sed -nf debian/sed_scripts/extract-end \
-            "debian/lmodern.cfg.in"; \
-        } > "debian/lmodern.cfg"
-
-        # Also install the map files for replacement fonts for CS, CM, PL and
-        # VN.
-	$(INSTALL_FILE) fonts/map/dvips/lm/lm-rep-*.map \
-	  "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
-
-        # install cork-lm.map which helps xdvi/dvips/etc for old dvi files
-        # with old file names. This file is not disabled by default
-        # in lmodern.cfg.
-	$(INSTALL_FILE) debian/cork-lm.map \
-	  "$(PKG_INSTALL_DIR)/usr/share/texmf/fonts/map/dvips/lm"
-
-	for file in tex/latex/lm/*.fd tex/latex/lm/*.sty; do \
-          $(INSTALL_FILE) "$$file" \
-             "$(PKG_INSTALL_DIR)/usr/share/texmf/tex/latex/lm"; \
-        done
-
-	for file in doc/fonts/lm/*; do \
-          $(INSTALL_FILE) "$$file" \
-            "$(PKG_INSTALL_DIR)/usr/share/doc/texmf/fonts/lm"; \
-        done
-
-        # Symlink the useful documentation files from
-        # /usr/share/doc/texmf/fonts/lm/ to /usr/share/doc/lmodern/.
-	{ echo "usr/share/doc/texmf/fonts/lm/README-Latin-Modern.TXT" \
-               "usr/share/doc/lmodern/README"; \
-          echo "usr/share/doc/texmf/fonts/lm/MANIFEST-Latin-Modern.TXT" \
-               "usr/share/doc/lmodern/MANIFEST.txt"; \
-          echo "usr/share/doc/texmf/fonts/lm/lm-hist.txt" \
-               "usr/share/doc/lmodern/lm-hist.txt"; \
-          echo "usr/share/doc/texmf/fonts/lm/lm-info.pdf" \
-               "usr/share/doc/lmodern/lm-info.pdf"; \
-        } >> "debian/$(PKG).links"
-
         # Install the standard conffile for update-updmap
-	dh_installtex --priority=10 mapfile=debian/lmodern.cfg
+	dh_installtex map=Map,lm.map
+	dh_installtex -p $(PKGFONTS)
 
-	dh_link \
-		etc/fonts/conf.avail/65-$(PKG).conf \
-		etc/fonts/conf.d/65-$(PKG).conf
-
-
-	dh_installdocs debian/NEWS.Debian
-
-	$(INSTALL_FILE) debian/font-substitution/* \
-          "$(PKG_INSTALL_DIR)/usr/share/doc/$(PKG)/font-substitution"
-
+	dh_link
+	dh_installdocs
 	dh_installchangelogs
-
-	$(INSTALL_FILE) debian/$(PKG).lintian-overrides \
-          "$(PKG_INSTALL_DIR)/usr/share/lintian/overrides/$(PKG)"
-
+	dh_lintian
 	dh_compress -X.pdf
 	dh_fixperms
 	dh_installdeb

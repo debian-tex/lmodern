@@ -8,9 +8,21 @@ This package makes the Latin Modern fonts available to:
   - the TeX typesetting system (TeX, LaTeX, pdfTeX, pdfLaTeX, xdvi,
     Dvips, etc.);
 
-  - desktop environments;
+  - the core X11 fonts system[1], for use by any X application;
 
-  - the core X11 fonts system[1], for use by any X application.
+  - for desktop environments using fontconfig the OpenType variant of
+    these fonts are activated by the fonts-lmodern package.
+
+
+Contents
+=========
+* How to use the Latin Modern fonts with X11?
+* How to use the Latin Modern fonts with LaTeX-based engines[1]?
+* How to use the Latin Modern fonts with TeX?
+* How to use the Latin Modern fonts as replacement for CM, CS, PL, and VN?
+* How to deal with old DVI files
+* The PFM files are not included
+* If you have a /etc/texmf/updmap.d/10lmodern.bak file
 
 
 How to use the Latin Modern fonts with X11?
@@ -84,6 +96,39 @@ easily as with the LaTeX packages 'inputenc' and 'fontenc'. For instance,
 things such as \'e will probably not do what you would like.
 
 
+How to use the Latin Modern fonts as replacement for CM, CS, PL, and VN?
+------------------------------------------------------------------------
+The Latin Modern fonts can be used as a substitution for CM, CS, PL, and VN as
+mentioned in the README file. Several map files and encoding files (the ones
+with '-rep-' in their name) have been prepared for this purpose and can be
+found in <TEXMFMAIN>/fonts/map/dvips/lm and <TEXMFMAIN>/fonts/enc/dvips/lm.
+
+To make use of these map files, add (create if necessary) lines to
+/etc/texmf/web2c/updmap.cfg as follows:
+For CM:
+	MixedMap lm-rep-cmtest-interpolated.map
+	MixedMap lm-rep-cmtext.map
+For CS:
+	MixedMap lm-rep-cstext.map
+For PL:
+	MixedMap lm-rep-pltext.map
+For VN:
+	MixedMap lm-rep-vntext.map
+After that run updmap-sys as root.
+
+
+How to deal with old DVI files
+------------------------------
+If you have old DVI files using the names of pre version 1 release of
+lmodern, you have two options: The best is to rebuild the DVI files so that
+new names are used. If this is not possible, you can activate the map file
+cork-lm.map by calling
+	updmap-sys --enable Map cork-lm.map
+as root, or adding (creating if necessary) a line
+	Map cork-lm.map
+in /etc/texmf/web2c/updmap.cfg and calling updmap-sys as root.
+
+
 The PFM files are not included
 ------------------------------
 
@@ -117,3 +162,4 @@ at all.
 
 
  -- Florent Rougon <frn@debian.org>, Sun Mar 25 12:52:11 2007
+ -- Norbert Preining <preining@debian.org>,  Wed Oct 10 10:18:32 JST 2012

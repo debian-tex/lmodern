@@ -14,7 +14,7 @@ Package: lmodern
 Section: fonts
 Architecture: all
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, fonts-lmodern (= ${source:Version})
 Conflicts: lm, lmodern-x11, context (<= 2008.10.31-1)
 Replaces: lm, lmodern-x11
 Description: scalable PostScript and OpenType fonts based on Computer Modern
@@ -22,6 +22,27 @@ Description: scalable PostScript and OpenType fonts based on Computer Modern
  scalable fonts in PostScript Type 1 and OpenType formats. They are
  based on the PostScript Type 1 version of the Computer Modern fonts
  and contain many additional characters (mostly accented ones).
+ .
+ This package provides TeX support and Type1 (PostScript) fonts. If only
+ the OpenType fonts are needed, please see the package fonts-lmodern.
+ .
+ See the description for fonts-lmodern package for more information.
+
+Package: fonts-lmodern
+Section: fonts
+Architecture: all
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}
+Replaces: lmodern (<= 2.004.2-1)
+Breaks: lmodern (<= 2.004.2-1)
+Description: OpenType fonts based on Computer Modern
+ The Latin Modern fonts, also known as "lm fonts", are a set of
+ scalable fonts in PostScript Type 1 and OpenType formats. They are
+ based on the PostScript Type 1 version of the Computer Modern fonts
+ and contain many additional characters (mostly accented ones).
+ .
+ This package provides the OpenType variant of these fonts. For support
+ for TeX and Type 1 (PostScript) fonts, see the lmodern package.
  .
  The Latin Modern fonts were generated using MetaType1, a program
  based on MetaPost for generating PostScript Type 1 fonts
@@ -31,7 +52,3 @@ Description: scalable PostScript and OpenType fonts based on Computer Modern
  that have no equivalent in this package; additionally, there are
  character sets that are supported by cm-super and not by the Latin
  Modern fonts).
- .
- The fonts are setup for use with the TeX typesetting system, as well
- as core X11 fonts system and Fontconfig, which makes it possible
- to use them in any X application.

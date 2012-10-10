@@ -1,11 +1,14 @@
 lmodern (2.004.2-2~1) UNRELEASED; urgency=low
 
+  * split OTF fonts into a separate package fonts-lmodern
+    (Closes: #689580, #689581)
   * don't mention defoma in description anymore (Closes: #685120)
   * install a fontconfig file that makes the opentype fonts available
     and disables the type 1 fonts for fontconfig
     (Closes: #687940, #645841)
+  * clean out cruft in the maintainer scripts
 
- -- Norbert Preining <preining@debian.org>  Tue, 25 Sep 2012 13:29:33 +0900
+ -- Norbert Preining <preining@debian.org>  Wed, 10 Oct 2012 10:33:56 +0900
 
 lmodern (2.004.2-1) unstable; urgency=low
 
