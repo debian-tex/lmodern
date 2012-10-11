@@ -1,4 +1,4 @@
-lmodern (2.004.2-2~2) UNRELEASED; urgency=low
+lmodern (2.004.2-2~3) UNRELEASED; urgency=low
 
   * split OTF fonts into a separate package fonts-lmodern
     (Closes: #689580, #689581)
@@ -7,9 +7,9 @@ lmodern (2.004.2-2~2) UNRELEASED; urgency=low
     and disables the type 1 fonts for fontconfig
     (Closes: #687940, #645841)
   * clean out cruft in the maintainer scripts, simplify rules file,
-    update copyright
+    update copyright, pre-generate all files, compat level bump to 9
 
- -- Norbert Preining <preining@debian.org>  Wed, 10 Oct 2012 18:42:38 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 11 Oct 2012 14:07:46 +0900
 
 lmodern (2.004.2-1) unstable; urgency=low
 

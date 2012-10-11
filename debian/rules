@@ -1,12 +1,7 @@
 #! /usr/bin/make -f
 
 build: build-arch build-indep
-# We have nothing to do here but the Debian Policy says this target must
-# exist.
-
 build-arch:
-# Nothing to do here
-
 build-indep: build-indep-stamp
 
 build-indep-stamp:
@@ -58,48 +53,31 @@ build-indep-stamp:
              } >&2; \
            fi
 
-        # Generate the actual copyright file from copyright.in and
-        # the GUST license
-	cat debian/copyright.in doc/fonts/lm/GUST-FONT-LICENSE.TXT \
-            > debian/copyright
-
 	touch build-indep-stamp
 
 clean:
 	dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
 	dh_testroot
-        # debian/lmodern.links is automatically generated from the list of
-        # fonts to declare to X11 among other things, so we have to delete
-        # it here.
-        # debian/copyright is automatically generated from the .in file
-	rm -f build-indep-stamp debian/lmodern.links debian/copyright
+	# dh_clean removes *-stamp files from compat v7 upward
 	dh_clean
 
-binary-indep: build-indep
-	dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
-	dh_testroot
-	dh_clean
-
-        # We will call dh_link only once for the build, with all desired links
-        # specified in lmodern.links because it is much faster than spawning
-        # a dh_link (actually, Perl) process for every symbolic link in this
-        # package. So, lmodern.links starts from the respective .in file
-	cat debian/lmodern.links.in > debian/lmodern.links
-
+debian/x11links:
 	# mind the $$ to trick make into using the right quotes
 	tail -n+2 debian/lmodern.scale | \
 	  awk -F. '{print$$1}' | sort | uniq | \
 	  sed -ne 's!^\(.*\)$$!usr/share/texmf/fonts/type1/public/lm/\1.pfb usr/share/fonts/X11/Type1/\1.pfb\nusr/share/texmf/fonts/afm/public/lm/\1.afm usr/share/fonts/X11/Type1/\1.afm!p' \
-	  >> debian/lmodern.links
-
+	  > debian/x11links
+	
+binary-indep: build-indep
+	dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
+	dh_testroot
+	dh_clean
 	dh_install
 	dh_installxfonts
-
 	# the first call works only on the lmodern package, not all
 	dh_installtex map=Map,lm.map
 	# since we are shipping files in texmf trees, call dh_installtex, too
 	dh_installtex -p fonts-lmodern
-
 	dh_link
 	dh_installdocs
 	dh_installchangelogs
@@ -112,8 +90,6 @@ binary-indep: build-indep
 	dh_builddeb
 
 binary-arch:
-# We have nothing to do here but the Debian Policy says this target must
-# exist.
 
 binary: binary-indep binary-arch
 

@@ -3,7 +3,7 @@ Section: fonts
 Priority: optional
 Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuhito KOHDA <kohda@debian.org>, Frank Küster <frank@debian.org>, Florent Rougon <frn@debian.org>, Norbert Preining <preining@debian.org>
-Build-Depends: debhelper (>= 8.1.0)
+Build-Depends: debhelper (>= 9)
 Build-Depends-Indep: tex-common (>= 3)
 Standards-Version: 3.9.3
 Vcs-Svn: svn://svn.debian.org/svn/debian-tex/lmodern/trunk
