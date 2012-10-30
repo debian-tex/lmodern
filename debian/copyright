@@ -1,11 +1,13 @@
 This package was debianized by Florent Rougon <f.rougon@free.fr> on
 Tue, 27 Jan 2004 20:12:21 +0100.
 
-It was downloaded from:
-
-    http://www.ctan.org/tex-archive/help/Catalogue/entries/lm.html
-
-    (lm.zip, repacked into tar.gz format for dpkg-source)
+The following TeX Live packages were downloaded from 
+    http://www.ctan.org/tex-archive/systems/texlive/tlnet/archive/
+and merged into one orig.tar.gz file:
+    lm.tar.xz
+    lm.doc.tar.xz
+    lm-math.tar.xz
+    lm-math.doc.tar.xz
 
 
 Upstream work
@@ -39,6 +41,23 @@ The upstream README-Latin-Modern.txt file says:
   the CM fonts see, e.g., http://www.math.utah.edu/~beebe/fonts/bluesky.html ).
   The project is supported by TeX users groups: CSTUG, DANTE eV, GUST,
   GUTenberg, NTG, and TUG.
+
+
+The current README-Latin-Modern-Math.txt says
+License:
+  % Copyright 2012 for the Latin Modern math extensions by B. Jackowski,
+  % P. Strzelczyk and P. Pianowski (on behalf of TeX Users Groups).
+  %
+  % This work can be freely used and distributed under
+  % the GUST Font License (GFL -- see GUST-FONT-LICENSE.txt)
+  % which is actually an instance of the LaTeX Project Public License
+  % (LPPL -- see http://www.latex-project.org/lppl.txt).
+  %
+  % This work has the maintenance status "maintained". The Current Maintainer
+  % of this work is Bogus\l{}aw Jackowski, Piotr Strzelczyk and Piotr Pianowski.
+  %
+  % This work consists of the files listed
+  % in the MANIFEST-Latin-Modern-Math.txt file.
 
 
 See the appendix B for the GUST Font License.

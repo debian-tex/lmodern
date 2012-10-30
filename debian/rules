@@ -18,10 +18,12 @@ build-indep-stamp:
 	  -e '^\./fonts/map/dvipdfm/lm/[^/]*\.map$$' \
 	  -e '^\./fonts/enc/dvips/lm/[^/]*\.enc$$' \
 	  -e '^\./fonts/opentype/public/lm/[^/]*\.otf$$' \
+	  -e '^\./fonts/opentype/public/lm-math/[^/]*\.otf$$' \
           -e '^\./tex/latex/lm/[^/]*\.(fd|sty)$$' \
 	  -e '^\./(README\.eng|README)$$' \
 	  -e '^\./(lm1\.106mt1\.zip)$$' \
-          -e '^\./doc/fonts/lm/[^/]*\.(tex|pdf|txt|eng|TXT)$$' || true) && \
+	  -e '^\./doc/fonts/lm-math/[^/]*\.(tex|pdf|txt|eng|TXT|docx)$$' \
+	  -e '^\./doc/fonts/lm/[^/]*\.(tex|pdf|txt|eng|TXT)$$' || true) && \
           if [ -n "$$newfiles" ]; then \
               { echo "New files were found in the patched tarball" \
                      "(.orig.tar.gz + .diff.gz):"; \

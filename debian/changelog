@@ -1,5 +1,7 @@
-lmodern (2.004.2-2~3) UNRELEASED; urgency=low
+lmodern (2.004.3-1~1) UNRELEASED; urgency=low
 
+  * include lm-math opentype fonts: this superseeds the font included
+    in 2.004.2-1, and also introduces a file name change
   * split OTF fonts into a separate package fonts-lmodern
     (Closes: #689580, #689581)
   * don't mention defoma in description anymore (Closes: #685120)
@@ -9,7 +11,7 @@ lmodern (2.004.2-2~3) UNRELEASED; urgency=low
   * clean out cruft in the maintainer scripts, simplify rules file,
     update copyright, pre-generate all files, compat level bump to 9
 
- -- Norbert Preining <preining@debian.org>  Thu, 11 Oct 2012 14:07:46 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 30 Oct 2012 10:07:06 +0900
 
 lmodern (2.004.2-1) unstable; urgency=low
 
