@@ -6,8 +6,8 @@ Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuh
 Build-Depends: debhelper (>= 9)
 Build-Depends-Indep: tex-common (>= 3)
 Standards-Version: 3.9.3
-Vcs-Svn: svn://svn.debian.org/svn/debian-tex/lmodern/trunk
-Vcs-Browser: http://svn.debian.org/wsvn/debian-tex/lmodern/trunk/
+Vcs-Git: git://anonscm.debian.org/debian-tex/lmodern.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-tex/lmodern.git
 Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/
 
 Package: lmodern

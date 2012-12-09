@@ -2,8 +2,9 @@ lmodern (2.004.4-1) experimental; urgency=low
 
   * new upstream release with another change of the naming of the 
     math font
+  * fix Vcs fields
 
- -- Norbert Preining <preining@debian.org>  Mon, 10 Dec 2012 08:10:31 +0900
+ -- Norbert Preining <preining@debian.org>  Mon, 10 Dec 2012 08:23:34 +0900
 
 lmodern (2.004.3-1) unstable; urgency=low
 
