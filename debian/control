@@ -4,8 +4,8 @@ Priority: optional
 Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>, C.M. Connelly <cmc@debian.org>, Atsuhito KOHDA <kohda@debian.org>, Frank Küster <frank@debian.org>, Florent Rougon <frn@debian.org>, Norbert Preining <preining@debian.org>
 Build-Depends: debhelper (>= 9)
-Build-Depends-Indep: tex-common (>= 3)
-Standards-Version: 3.9.3
+Build-Depends-Indep: tex-common (>= 4.01)
+Standards-Version: 3.9.4
 Vcs-Git: git://anonscm.debian.org/debian-tex/lmodern.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=debian-tex/lmodern.git
 Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/

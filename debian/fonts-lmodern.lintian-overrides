@@ -1,2 +1,2 @@
-fonts-lmodern binary: extra-license-file usr/share/doc/texmf/fonts/lm/GUST-FONT-LICENSE.TXT
-fonts-lmodern binary: extra-license-file usr/share/doc/texmf/fonts/lm-math/GUST-FONT-LICENSE.txt
+fonts-lmodern binary: extra-license-file usr/share/texmf/doc/fonts/lm/GUST-FONT-LICENSE.TXT
+fonts-lmodern binary: extra-license-file usr/share/texmf/doc/fonts/lm-math/GUST-FONT-LICENSE.txt
