@@ -1,3 +1,10 @@
+lmodern (2.004.4-3) unstable; urgency=low
+
+  * fix dangling symlinks of docs (Closes: #706998)
+  * upload to unstable
+
+ -- Norbert Preining <preining@debian.org>  Tue, 07 May 2013 13:20:24 +0900
+
 lmodern (2.004.4-2) experimental; urgency=low
 
   * move doc files into /usr/share/texmf/doc
