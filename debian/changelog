@@ -1,8 +1,10 @@
 lmodern (2.004.4-4) UNRELEASED; urgency=low
 
-  * fix more dangling symlinks (Closes: #708643)
+  * fix more dangling symlinks (Closes: #708643, #706998)
+    (I like it when people reopen bugs although there is a duplicate
+    bug that they themselves opened ... seems to be fun)
 
- -- Norbert Preining <preining@debian.org>  Mon, 20 May 2013 16:23:16 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 29 Oct 2013 11:46:59 +0900
 
 lmodern (2.004.4-3) unstable; urgency=low
 
