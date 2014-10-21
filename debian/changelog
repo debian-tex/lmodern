@@ -1,11 +1,12 @@
-lmodern (2.004.4-4) UNRELEASED; urgency=low
+lmodern (2.004.4-4) unstable; urgency=low
 
   * fix more dangling symlinks (Closes: #708643, #706998)
     (I like it when people reopen bugs although there is a duplicate
     bug that they themselves opened ... seems to be fun)
   * remove C.M. Connelly from uploaders, MIA (Closes: #765325)
+  * bump standards version, no changes necessary
 
- -- Norbert Preining <preining@debian.org>  Tue, 14 Oct 2014 17:07:59 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 21 Oct 2014 09:07:44 +0900
 
 lmodern (2.004.4-3) unstable; urgency=low
 
