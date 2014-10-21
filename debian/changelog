@@ -5,8 +5,9 @@ lmodern (2.004.4-4) unstable; urgency=low
     bug that they themselves opened ... seems to be fun)
   * remove C.M. Connelly from uploaders, MIA (Closes: #765325)
   * bump standards version, no changes necessary
+  * add Multi-Arch: foreign
 
- -- Norbert Preining <preining@debian.org>  Tue, 21 Oct 2014 09:07:44 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 21 Oct 2014 09:15:02 +0900
 
 lmodern (2.004.4-3) unstable; urgency=low
 
