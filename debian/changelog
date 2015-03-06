@@ -1,3 +1,10 @@
+lmodern (2.004.4-6) UNRELEASED; urgency=medium
+
+  * remove Kohda-san from the uploaders, thanks for his contributions
+    (Closes: #773958)
+
+ -- Norbert Preining <preining@debian.org>  Fri, 06 Mar 2015 18:54:51 +0900
+
 lmodern (2.004.4-5) unstable; urgency=medium
 
   * fix another dangling symlink (Closes: #766155)
