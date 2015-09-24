@@ -3,8 +3,10 @@ lmodern (2.004.5-1) unstable; urgency=medium
   * new upstream release with new Latin Modern Math fonts (Closes: #799731)
   * remove Kohda-san from the uploaders, thanks for his contributions
     (Closes: #773958)
+  * override license-problem-font-adobe-copyrighted-fragment, nothing
+    we can do for now
 
- -- Norbert Preining <preining@debian.org>  Thu, 24 Sep 2015 19:43:11 +0900
+ -- Norbert Preining <preining@debian.org>  Thu, 24 Sep 2015 19:47:45 +0900
 
 lmodern (2.004.4-5) unstable; urgency=medium
 
