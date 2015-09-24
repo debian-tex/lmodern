@@ -4,11 +4,11 @@
 
 Font: Latin Modern Math
 Authors: Bogus\l{}aw Jackowski, Piotr Strzelczyk and Piotr Pianowski
-Version: 1.950
-Date: 11 X 2012
+Version: 1.959
+Date: 5 IX 2014
 
 License:
-  % Copyright 2012 for the Latin Modern math extensions by B. Jackowski,
+  % Copyright 2012--2014 for the Latin Modern math extensions by B. Jackowski,
   % P. Strzelczyk and P. Pianowski (on behalf of TeX Users Groups).
   %
   % This work can be freely used and distributed under
@@ -36,10 +36,10 @@ for Math Processing". Moreover, they should contain a broad collection
 of special characters (see "Draft Unicode Technical Report #25.
 UNICODE SUPPORT FOR MATHEMATICS" by Barbara Beeton, Asmus Freytag,
 and Murray Sargent III). In particular, math OTF fonts are expected
-to contain the following scripts: a basic serif font (regular, bold, 
-italic and bold italic), a calligraphic font (regular and bold), 
-a double-struck font, a fraktur font (regular and bold), a sans-serif 
-font (regular, bold, oblique and regular oblique), and a monospaced font.
+to contain the following scripts: a basic serif script (regular, bold, 
+italic and bold italic), a calligraphic script (regular and bold), 
+a double-struck script, a fraktur script (regular and bold), a sans-serif 
+script (regular, bold, oblique and bold oblique), and a monospaced script.
 
 The basic script is, obviously, Latin Modern. Some scripts, however,
 are borrowed from other fonts (the current selection, however, may
@@ -75,6 +75,15 @@ the Type1 PostScript font containing all relevant characters was
 generated with the MetaType1 engine, and the result was converted
 into the OTF format with all the necessary data structures by
 a Python script employing the FontForge library.
+
+Recent changes (ver. 1.958 --> ver. 1.959) comprised
+mainly interline settings in OTF tables (HHEA and
+OS/2) and the correction of unicode slots assigned to
+the contour integrals (glyphs `clockwise contour
+integral', u+2232, and `anticlockwise contour
+integral', u+2233, used to have swapped slots).
+
+                   *    *    *
 
 The TeX Gyre Math Project was launched and is supported by
 TeX USERS GROUPS (CS TUG, DANTE eV, GUST, NTG, TUG India, TUG, UK TUG).

@@ -1,7 +1,9 @@
 
 \startformula
   \widehat{bcd} \ \widetilde{efg} \ \dot A \ {\bi\dot A \check t} 
-  \  \check{\cal A} \check{\cal a} \ \mathbf{\acute \imath}
+  \  \check{\cal A} 
+  % \check{\cal a}% at the moment, there is no lowercase calligraphic alphabet in Latin Modern Math
+  \ \mathbf{\acute \imath}
 \stopformula
 
 %Angle brackets:
@@ -16,11 +18,9 @@
 \stopformula
 
 %%Horizontal brackets:
-\let\overbracket\overbrace
-\let\overparen\overbrace
 \startformula
  \underbrace{\overbracket{aaaaaaa}}_{\rm Siedém}
-  \underbrace{\overparen{aaaaa}}_{\rm pięć}
+  \underbrace{\overparent{aaaaa}}_{\rm pięć}
 \stopformula
 
 %Squares:
