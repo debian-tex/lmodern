@@ -6,8 +6,8 @@ build-indep: build-indep-stamp
 
 build-indep-stamp:
 	dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
-        # Warn the person building the package if new files were added
-        # to the .orig.tar.gz + .diff.gz that this script is not aware of.
+	# Warn the person building the package if new files were added
+	# to the .orig.tar.gz + .diff.gz that this script is not aware of.
 	@newfiles=$$(find . -type f | grep -Ev \
           -e '^\./debian/' \
           -e '^\./fonts/type1/public/lm/[^/]*\.pf[bm]$$' \
