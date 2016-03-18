@@ -14,7 +14,7 @@ Package: lmodern
 Section: fonts
 Architecture: all
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends}, fonts-lmodern (= ${source:Version})
+Depends: ${misc:Depends}, fonts-lmodern (= ${source:Version}), fonts-lmodern-math (= ${source:Version})
 Conflicts: lm, lmodern-x11, context (<= 2008.10.31-1)
 Replaces: lm, lmodern-x11
 Description: scalable PostScript and OpenType fonts based on Computer Modern
@@ -33,7 +33,7 @@ Section: fonts
 Architecture: all
 Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, fonts-lmodern-math (= ${source:Version})
 Replaces: lmodern (<= 2.004.2-1)
 Breaks: lmodern (<= 2.004.2-1)
 Description: OpenType fonts based on Computer Modern
@@ -53,3 +53,19 @@ Description: OpenType fonts based on Computer Modern
  that have no equivalent in this package; additionally, there are
  character sets that are supported by cm-super and not by the Latin
  Modern fonts).
+
+Package: fonts-lmodern-math
+Section: fonts
+Architecture: all
+Multi-Arch: foreign
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}
+Replaces: fonts-lmodern (<< 2.004.5-2), lmodern (<= 2.004.2-1)
+Breaks: fonts-lmodern (<< 2.004.5-2), lmodern (<= 2.004.2-1)
+Description: OpenType math fonts based on Computer Modern
+ The Latin Modern fonts, also known as "lm fonts", are a set of
+ scalable fonts in PostScript Type 1 and OpenType formats. They are
+ based on the PostScript Type 1 version of the Computer Modern fonts
+ and contain many additional characters (mostly accented ones).
+ .
+ This package provides the OpenType math font.

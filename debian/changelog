@@ -2,8 +2,9 @@ lmodern (2.004.5-2) UNRELEASED; urgency=medium
 
   * drop dh_installtex call for fonts-lmodern, as all work is done
     via triggers (Closes: #814321)
+  * separate out math fonts into fonts-lmodern-math
 
- -- Norbert Preining <preining@debian.org>  Wed, 10 Feb 2016 21:24:13 +0900
+ -- Norbert Preining <preining@debian.org>  Fri, 18 Mar 2016 10:04:14 +0900
 
 lmodern (2.004.5-1) unstable; urgency=medium
 

@@ -1,0 +1,3 @@
+fonts/opentype/public/lm-math/*.otf usr/share/texmf/fonts/opentype/public/lm-math
+doc/fonts/lm-math/* usr/share/texmf/doc/fonts/lm-math
+debian/65-fonts-lmodern-math.conf etc/fonts/conf.avail
