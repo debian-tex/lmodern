@@ -33,7 +33,7 @@ Section: fonts
 Architecture: all
 Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends}, fonts-lmodern-math (= ${source:Version})
+Depends: fonts-lmodern-math (= ${source:Version})
 Replaces: lmodern (<= 2.004.2-1)
 Breaks: lmodern (<= 2.004.2-1)
 Description: OpenType fonts based on Computer Modern
@@ -59,7 +59,6 @@ Section: fonts
 Architecture: all
 Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}
-Depends: ${misc:Depends}
 Replaces: fonts-lmodern (<< 2.004.5-2), lmodern (<= 2.004.2-1)
 Breaks: fonts-lmodern (<< 2.004.5-2), lmodern (<= 2.004.2-1)
 Description: OpenType math fonts based on Computer Modern
