@@ -1,3 +1,10 @@
+lmodern (2.004.5-3) unstable; urgency=medium
+
+  * fix dh_installtex call - debhelper changed semantics without
+    announcing it (Closes: #814321)
+
+ -- Norbert Preining <preining@debian.org>  Thu, 24 Mar 2016 23:57:30 +0900
+
 lmodern (2.004.5-2) unstable; urgency=medium
 
   * drop dh_installtex call for fonts-lmodern, as all work is done

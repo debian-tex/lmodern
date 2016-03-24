@@ -76,11 +76,7 @@ binary-indep: build-indep
 	dh_clean
 	dh_install
 	dh_installxfonts
-	# the first call works only on the lmodern package, not all
-	dh_installtex map=Map,lm.map
-	# since we are shipping files in texmf trees, call dh_installtex, too
-	# not necessary anymore, as mktexlsr is called via triggers
-	# dh_installtex -p fonts-lmodern
+	dh_installtex --package=lmodern map=Map,lm.map
 	dh_link
 	dh_installdocs
 	dh_installchangelogs
