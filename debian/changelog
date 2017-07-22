@@ -1,3 +1,10 @@
+lmodern (2.004.5-4) UNRELEASED; urgency=medium
+
+  * remove Florent from the list of uploaders, thanks for your work
+    (Closes: #869308)
+
+ -- Norbert Preining <preining@debian.org>  Sun, 23 Jul 2017 00:02:08 +0900
+
 lmodern (2.004.5-3) unstable; urgency=medium
 
   * fix dh_installtex call (Closes: #814321)
