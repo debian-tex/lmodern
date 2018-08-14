@@ -1,4 +1,4 @@
-lmodern (2.004.5-4) UNRELEASED; urgency=medium
+lmodern (2.004.5-4) unstable; urgency=medium
 
   * remove Florent from the list of uploaders, thanks for your work
     (Closes: #869308)
@@ -6,7 +6,7 @@ lmodern (2.004.5-4) UNRELEASED; urgency=medium
     X font installation, thanks Paul Wise (Closes: #905879)
   * bump standards version, no changes necessary
 
- -- Norbert Preining <preining@debian.org>  Tue, 14 Aug 2018 23:04:40 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 14 Aug 2018 23:04:58 +0900
 
 lmodern (2.004.5-3) unstable; urgency=medium
 
