@@ -75,9 +75,9 @@ binary-indep: build-indep
 	dh_testroot
 	dh_clean
 	dh_install
+	dh_link
 	dh_installxfonts
 	dh_installtex --package=lmodern map=Map,lm.map
-	dh_link
 	dh_installdocs
 	dh_installchangelogs
 	dh_lintian

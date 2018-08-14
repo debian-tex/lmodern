@@ -2,8 +2,10 @@ lmodern (2.004.5-4) UNRELEASED; urgency=medium
 
   * remove Florent from the list of uploaders, thanks for your work
     (Closes: #869308)
+  * move calls to dh_links above dh_installxfonts to get proper 
+    X font installation, thanks Paul Wise (Closes: #905879)
 
- -- Norbert Preining <preining@debian.org>  Sun, 23 Jul 2017 00:02:08 +0900
+ -- Norbert Preining <preining@debian.org>  Tue, 14 Aug 2018 23:01:39 +0900
 
 lmodern (2.004.5-3) unstable; urgency=medium
 
