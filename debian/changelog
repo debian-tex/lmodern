@@ -1,3 +1,11 @@
+lmodern (2.004.5-5) unstable; urgency=medium
+
+  * go back to source format 1.0, dpkg/quilt creates irrelevant
+    directories in case no patches are available, breaking builds
+    (Closes: #906762)
+
+ -- Norbert Preining <preining@debian.org>  Wed, 22 Aug 2018 10:15:43 +0900
+
 lmodern (2.004.5-4) unstable; urgency=medium
 
   * remove Florent from the list of uploaders, thanks for your work
