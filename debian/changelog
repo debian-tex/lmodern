@@ -1,3 +1,9 @@
+lmodern (2.004.5-6) unstable; urgency=medium
+
+  * update VCS, my email, and standard versions
+
+ -- Norbert Preining <norbert@preining.info>  Thu, 28 Feb 2019 23:52:28 +0900
+
 lmodern (2.004.5-5) unstable; urgency=medium
 
   * go back to source format 1.0, dpkg/quilt creates irrelevant

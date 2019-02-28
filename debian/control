@@ -2,12 +2,12 @@ Source: lmodern
 Section: fonts
 Priority: optional
 Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
-Uploaders: Julian Gilbey <jdg@debian.org>, Frank Küster <frank@debian.org>, Norbert Preining <preining@debian.org>
+Uploaders: Julian Gilbey <jdg@debian.org>, Frank Küster <frank@debian.org>, Norbert Preining <norbert@preining.info>
 Build-Depends: debhelper (>= 9)
 Build-Depends-Indep: tex-common (>= 4.01)
-Standards-Version: 4.2.0
-Vcs-Git: https://salsa.debian.org/tex-team/lmodern.git
-Vcs-Browser: https://salsa.debian.org/tex-team/lmodern
+Standards-Version: 4.2.1
+Vcs-Git: https://github.com/debian-tex/lmodern.git
+Vcs-Browser: https://github.com/debian-tex/lmodern
 Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/
 
 Package: lmodern
