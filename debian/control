@@ -2,7 +2,10 @@ Source: lmodern
 Section: fonts
 Priority: optional
 Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
-Uploaders: Julian Gilbey <jdg@debian.org>, Frank Küster <frank@debian.org>, Norbert Preining <norbert@preining.info>
+Uploaders: Julian Gilbey <jdg@debian.org>,
+	Frank Küster <frank@debian.org>,
+	Norbert Preining <norbert@preining.info>,
+	Hilmar Preusse <hille42@web.de>
 Build-Depends: debhelper (>= 9)
 Build-Depends-Indep: tex-common (>= 4.01)
 Standards-Version: 4.2.1
