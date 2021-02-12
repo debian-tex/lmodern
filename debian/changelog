@@ -1,5 +1,8 @@
 lmodern (2.004.5-7) UNRELEASED; urgency=medium
 
+  [ Helmut Grohne <helmut@subdivi.de> ]
+  * Mark lmodern Multi-Arch: foreign. (Closes: #982610)
+
   * Add me to Uploaders.
   * Remove trailing white space from d/changelog.
 

@@ -16,6 +16,7 @@ Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/
 Package: lmodern
 Section: fonts
 Architecture: all
+Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${misc:Depends}, fonts-lmodern (= ${source:Version})
 Conflicts: lm, lmodern-x11, context (<= 2008.10.31-1)
