@@ -1,6 +1,7 @@
 lmodern (2.004.5-7) UNRELEASED; urgency=medium
 
   * Add me to Uploaders.
+  * Lots of lintian fixes...and Overrides.
   * Remove trailing white space from d/changelog.
   * Turn package into source format "3.0 (quilt)" (Closes: #1007060).
   * Debhelper compat 13.

@@ -14,7 +14,6 @@ Vcs-Browser: https://github.com/debian-tex/lmodern
 Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/
 
 Package: lmodern
-Section: fonts
 Architecture: all
 Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}
@@ -33,7 +32,6 @@ Description: scalable PostScript and OpenType fonts based on Computer Modern
  See the description for fonts-lmodern package for more information.
 
 Package: fonts-lmodern
-Section: fonts
 Architecture: all
 Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}

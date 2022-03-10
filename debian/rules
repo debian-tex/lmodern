@@ -36,7 +36,7 @@ build-indep-stamp:
           fi
 
         # Upstream provides <texmf>/fonts/map/dvips/lm/lm.map that should be
-        # equivalent to all the encoding-specific map files in 
+        # equivalent to all the encoding-specific map files in
         # <texmf>/fonts/map/dvips/lm/ but the replacement maps for CM, CS
         # PL and VN fonts. Let's check if this is really the case.
 	@export LC_COLLATE=C \
