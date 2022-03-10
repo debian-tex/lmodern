@@ -6,7 +6,7 @@ Uploaders: Julian Gilbey <jdg@debian.org>,
 	Frank Küster <frank@debian.org>,
 	Norbert Preining <norbert@preining.info>,
 	Hilmar Preusse <hille42@web.de>
-Build-Depends: debhelper
+Build-Depends: debhelper-compat (=13)
 Build-Depends-Indep: tex-common
 Standards-Version: 4.2.1
 Vcs-Git: https://github.com/debian-tex/lmodern.git
