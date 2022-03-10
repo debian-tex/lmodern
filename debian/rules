@@ -10,6 +10,7 @@ build-indep-stamp:
 	# to the .orig.tar.gz + .diff.gz that this script is not aware of.
 	@newfiles=$$(find . -type f | grep -Ev \
           -e '^\./debian/' \
+          -e '^\./.pc/' \
           -e '^\./fonts/type1/public/lm/[^/]*\.pf[bm]$$' \
           -e '^\./fonts/afm/public/lm/[^/]*\.afm$$' \
           -e '^\./fonts/afm/public/lm/[^/]*\.aft$$' \
