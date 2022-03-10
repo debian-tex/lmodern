@@ -1,1 +1,4 @@
 lmodern: license-problem-font-adobe-copyrighted-fragment
+# We are in TeX world.
+lmodern: font-in-non-font-package
+lmodern: font-outside-font-dir
