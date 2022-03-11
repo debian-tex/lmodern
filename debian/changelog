@@ -1,4 +1,4 @@
-lmodern (2.005-1) UNRELEASED; urgency=medium
+lmodern (2.005-1) unstable; urgency=low
 
   New upstream release
   * A bug in *lm*tt.fd files, corrected on 01.05.2015, installed belatedly
@@ -10,6 +10,7 @@ lmodern (2.005-1) UNRELEASED; urgency=medium
   * Turn package into source format "3.0 (quilt)" (Closes: #1007060).
   * Remove obsolete file debian/lmodern.preinst.
   * Debhelper compat 13.
+  * Bump Standards version to 4.6.0, no(?) changes needed.
 
   [ Helmut Grohne <helmut@subdivi.de> ]
   * Mark lmodern Multi-Arch: foreign. (Closes: #982610)
@@ -23,7 +24,7 @@ lmodern (2.005-1) UNRELEASED; urgency=medium
     + fonts-lmodern: Drop versioned constraint on lmodern in Breaks.
     + Remove 2 maintscript entries from 1 files.
 
- -- Hilmar Preusse <hille42@web.de>  Fri, 12 Feb 2021 23:48:51 +0100
+ -- Hilmar Preusse <hille42@web.de>  Fri, 11 Mar 2022 23:39:18 +0100
 
 lmodern (2.004.5-6) unstable; urgency=medium
 
