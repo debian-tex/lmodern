@@ -9,6 +9,7 @@ Uploaders: Julian Gilbey <jdg@debian.org>,
 Build-Depends: debhelper-compat (=13)
 Build-Depends-Indep: tex-common
 Standards-Version: 4.2.1
+Rules-Requires-Root: no
 Vcs-Git: https://github.com/debian-tex/lmodern.git
 Vcs-Browser: https://github.com/debian-tex/lmodern
 Homepage: http://www.gust.org.pl/projects/e-foundry/latin-modern/
