@@ -4,6 +4,10 @@ README-Latin-Modern.txt files for the details. For the most recent version of
 this license see http://www.gust.org.pl/fonts/licenses/GUST-FONT-LICENSE.txt
 or http://tug.org/fonts/licenses/GUST-FONT-LICENSE.txt
 
+Ver. 2.005, 21.03.2021:
+* a bug in *lm*tt.fd files, corrected on 01.05.2015, installed
+  belatedly (thanks to Enrico Malizia); fonts were not touched
+
 Ver. 2.004, 30.10.2009:
 * a bug in *lssq.fd files corrected (thanks to Heiko Oberdiek);
   fonts were not touched, only the time stamp changed
@@ -16,7 +20,7 @@ Ver. 2.004, 07.10.2009:
 
 Ver. 2.003, 16.09.2009: main modification: shapes of LM glyps consistent
 with D.E. Knuth's recent changes in CMs plus lots of tiny changes;
-most important changes are described in details below: 
+most important changes are described in details below:
 * fonts and glyphs modified according to D.E. Knuth's changes in CMs
   (note that the corrections related to glyph shapes, not metric data):
   -- leftward arrow (char '040), rightward arrow (char '041),
@@ -44,12 +48,12 @@ most important changes are described in details below:
   cm-super''. Alas, this cannot be easily accomplished: the CM-SUPER fonts
   are based on the EC fonts, and both collections are not compatible
   with the CM (and thus LM) fonts! The reason is that the EC and thus
-  CM-SUPER fonts have in most cases widths slightly smaller 
+  CM-SUPER fonts have in most cases widths slightly smaller
   (with the coefficient ca. 99.975%) than the relevant CM fonts;
   exceptions are ecssdc10 and ecsql8, where the width coefficients
   are equal 100%, and ecrm1728, where the widths are greater
   by 1.5%--2.5% in comparison with cmr17, hence switching
-  between EC/CM-SUPER and CM/LM is in general bound to produce 
+  between EC/CM-SUPER and CM/LM is in general bound to produce
   different results
 * a bug in encodings fixed (sometimes instead of `backslash' other
   characters were typeset)
