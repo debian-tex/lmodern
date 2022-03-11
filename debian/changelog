@@ -1,4 +1,8 @@
-lmodern (2.004.5-7) UNRELEASED; urgency=medium
+lmodern (2.005-1) UNRELEASED; urgency=medium
+
+  New upstream release
+  * A bug in *lm*tt.fd files, corrected on 01.05.2015, installed belatedly
+    (thanks to Enrico Malizia); fonts were not touched
 
   * Add me to Uploaders.
   * Lots of lintian fixes...and Overrides.
