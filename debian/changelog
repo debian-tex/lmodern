@@ -4,6 +4,7 @@ lmodern (2.004.5-7) UNRELEASED; urgency=medium
   * Lots of lintian fixes...and Overrides.
   * Remove trailing white space from d/changelog.
   * Turn package into source format "3.0 (quilt)" (Closes: #1007060).
+  * Remove obsolete file debian/lmodern.preinst.
   * Debhelper compat 13.
 
   [ Helmut Grohne <helmut@subdivi.de> ]
