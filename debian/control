@@ -5,7 +5,7 @@ Maintainer: Debian TeX Task Force <debian-tex-maint@lists.debian.org>
 Uploaders: Julian Gilbey <jdg@debian.org>,
 	Frank Küster <frank@debian.org>,
 	Norbert Preining <norbert@preining.info>,
-	Hilmar Preusse <hille42@web.de>
+	Hilmar Preuße <hille42@debian.org>
 Build-Depends: debhelper-compat (=13)
 Build-Depends-Indep: tex-common
 Standards-Version: 4.6.0
