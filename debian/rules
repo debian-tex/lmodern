@@ -1,26 +1,26 @@
 #! /usr/bin/make -f
 
-build: build-arch build-indep
-build-arch:
-build-indep: build-indep-stamp
+%:
+	dh $@ --with tex
 
-build-indep-stamp:
-	dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
+override_dh_auto_build:
+	# Add here commands to compile the package.
+	#dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
 	# Warn the person building the package if new files were added
 	# to the .orig.tar.gz + .diff.gz that this script is not aware of.
 	@newfiles=$$(find . -type f | grep -Ev \
-          -e '^\./debian/' \
-          -e '^\./.pc/' \
-          -e '^\./fonts/type1/public/lm/[^/]*\.pf[bm]$$' \
-          -e '^\./fonts/afm/public/lm/[^/]*\.afm$$' \
-          -e '^\./fonts/afm/public/lm/[^/]*\.aft$$' \
-          -e '^\./fonts/tfm/public/lm/[^/]*\.tfm$$' \
+	  -e '^\./debian/' \
+	  -e '^\./.pc/' \
+	  -e '^\./fonts/type1/public/lm/[^/]*\.pf[bm]$$' \
+	  -e '^\./fonts/afm/public/lm/[^/]*\.afm$$' \
+	  -e '^\./fonts/afm/public/lm/[^/]*\.aft$$' \
+	  -e '^\./fonts/tfm/public/lm/[^/]*\.tfm$$' \
 	  -e '^\./fonts/map/dvips/lm/[^/]*\.map$$' \
 	  -e '^\./fonts/map/dvipdfm/lm/[^/]*\.map$$' \
 	  -e '^\./fonts/enc/dvips/lm/[^/]*\.enc$$' \
 	  -e '^\./fonts/opentype/public/lm/[^/]*\.otf$$' \
 	  -e '^\./fonts/opentype/public/lm-math/[^/]*\.otf$$' \
-          -e '^\./tex/latex/lm/[^/]*\.(fd|sty)$$' \
+	  -e '^\./tex/latex/lm/[^/]*\.(fd|sty)$$' \
 	  -e '^\./(README\.eng|README)$$' \
 	  -e '^\./(lm1\.106mt1\.zip)$$' \
 	  -e '^\./doc/fonts/lm-math/[^/]*\.(tex|pdf|txt|eng|TXT|docx)$$' \
@@ -56,41 +56,16 @@ build-indep-stamp:
              } >&2; \
            fi
 
-	touch build-indep-stamp
-
-clean:
-	dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
-	dh_testroot
-	# dh_clean removes *-stamp files from compat v7 upward
-	dh_clean
-
-debian/x11links:
-	# mind the $$ to trick make into using the right quotes
-	tail -n+2 debian/lmodern.scale | \
-	  awk -F. '{print$$1}' | sort | uniq | \
-	  sed -ne 's!^\(.*\)$$!usr/share/texmf/fonts/type1/public/lm/\1.pfb usr/share/fonts/X11/Type1/\1.pfb\nusr/share/texmf/fonts/afm/public/lm/\1.afm usr/share/fonts/X11/Type1/\1.afm!p' \
-	  > debian/x11links
-	
-binary-indep: build-indep
-	dh_testdir fonts/type1/public/lm/lmr10.pfb tex/latex/lm/lmodern.sty
-	dh_testroot
-	dh_clean
-	dh_install
-	dh_link
-	dh_installxfonts
+override_dh_installtex:
 	dh_installtex --package=lmodern map=Map,lm.map
-	dh_installdocs
-	dh_installchangelogs
-	dh_lintian
+
+override_dh_compress:
 	dh_compress -X.pdf
-	dh_fixperms
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
 
-binary-arch:
-
-binary: binary-indep binary-arch
-
-.PHONY: clean build build-arch build-indep binary binary-indep binary-arch
+# Code to update debian/x11links (if needed).
+#debian/x11links:
+#	# mind the $$ to trick make into using the right quotes
+#	tail -n+2 debian/lmodern.scale | \
+#	  awk -F. '{print$$1}' | sort | uniq | \
+#	  sed -ne 's!^\(.*\)$$!usr/share/texmf/fonts/type1/public/lm/\1.pfb usr/share/fonts/X11/Type1/\1.pfb\nusr/share/texmf/fonts/afm/public/lm/\1.afm usr/share/fonts/X11/Type1/\1.afm!p' \
+#	  > debian/x11links

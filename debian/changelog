@@ -1,3 +1,9 @@
+lmodern (2.005-2) UNRELEASED; urgency=medium
+
+  * dh'rize the d/rules file.
+
+ -- Hilmar Preuße <hille42@debian.org>  Tue, 21 Oct 2025 22:45:02 +0200
+
 lmodern (2.005-1) unstable; urgency=low
 
   New upstream release
